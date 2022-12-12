@@ -1,0 +1,17 @@
+:root {
+
+    /* background color */
+    --background: #262323;
+    --panneau: black;
+
+    --main-bg: #1c1a19;
+    --second-bg: #201e1d;
+
+    --border: orange;
+
+    --main-contrast : yellow;
+    
+    --text: rgb(179, 179, 179);
+
+
+}

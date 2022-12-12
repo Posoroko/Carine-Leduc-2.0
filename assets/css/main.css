@@ -1,0 +1,12 @@
+body {
+    background-color: var(--main-bg);
+    overflow-x: hidden;
+}
+
+.r {
+    border: 1px solid red;
+}
+
+.pointer {
+    cursor: pointer;
+}
