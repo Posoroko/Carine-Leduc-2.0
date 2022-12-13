@@ -1,5 +1,7 @@
 <template>
     <section class="table">
+        <TitleBar title="Prestations"/>
+
         <ArtDeco />
         <div class="cardBox" v-for="presta in prestations" :key="presta.name">
             <ServiceCard :name='presta.value' />
@@ -11,6 +13,7 @@
 <script setup>
 import ArtDeco from '@/components/cardTable/ArtDeco.vue'
 import ServiceCard from '@/components/cardTable/ServiceCard'
+import TitleBar from '@/components/homepage/TitleBar.vue'
 
 const { getItems } = useDirectusItems();
 

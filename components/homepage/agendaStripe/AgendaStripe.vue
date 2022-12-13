@@ -1,5 +1,7 @@
 <template>
     <section class="">
+
+        <TitleBar title="Agenda"/>
         
         <ArtNouveauStripe />
 
@@ -39,6 +41,7 @@
 
 <script setup>
 import ArtNouveauStripe from '@/components/deco/ArtNouveauStripe.vue'
+import TitleBar from '@/components/homepage/TitleBar.vue'
 
 const movingFrame = ref(null)
 

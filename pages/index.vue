@@ -15,8 +15,6 @@
 
         <homeCardTable />
 
-        <h2 class="sectionTitle">Agenda</h2>
-
         <AgendaStripe />
         
     </main>
@@ -24,6 +22,7 @@
 
 <script setup>
 import AgendaStripe from '@/components/homepage/agendaStripe/AgendaStripe.vue'
+
 </script>
 
 <style scoped>
@@ -40,8 +39,5 @@ import AgendaStripe from '@/components/homepage/agendaStripe/AgendaStripe.vue'
     width: min(800px, var(--main-width));
     color: var(--text);
 }
-.sectionTitle {
-    color: var(--text);
-    font-family: 'Work Sans';
-}
+
 </style>
