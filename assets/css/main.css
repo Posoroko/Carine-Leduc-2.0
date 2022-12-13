@@ -1,3 +1,5 @@
+@import url("https://legendary-donut-99380b.netlify.app/basic-styles/basicStyles.css");
+
 body {
     background-color: var(--main-bg);
     overflow-x: hidden;

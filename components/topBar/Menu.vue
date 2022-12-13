@@ -5,7 +5,7 @@
         <div class="modal" v-show="modal">
             <p class="menu">
                 <span class="tab work" v-for='tab in tabs' :key="tab.name">
-                    <NuxtLink :to="tab.link"> {{ tab.name }} </NuxtLink>
+                    <NuxtLink :to="tab.link" @click="showModal"> {{ tab.name }} </NuxtLink>
                 </span>
             </p>
 

@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
 
 .fleur {
     font-family: 'Fleur De Leah';
 }
-
+.english {
+    font-family: 'IM Fell English SC', serif;
+}
 .work {
     font-family: 'Work Sans';
 }
@@ -15,6 +19,11 @@
     font-weight: 100 700;
     src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v63/kJEhBvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oFsI.woff2) format('woff2');
   }
+
+.garamond {
+    font-family: 'Cormorant Garamond', serif;
+}
+
 .icon {
 /* font-family: 'Material Icons'; */
 font-family: 'Material Symbols Outlined';

@@ -7,11 +7,32 @@
     --main-bg: #1c1a19;
     --second-bg: #201e1d;
 
-    --border: orange;
+    --border: #4c4431;
 
     --main-contrast : yellow;
     
     --text: rgb(179, 179, 179);
 
 
+
+    /* layout parameters */
+
+    --main-width: min(1600px, 90vw);
+
+
+    /* element styles */
+
+    --card-shadow: -2px 2px 10px rgba(0, 0, 0, 0.728);
+
 }
+
+/* $yellow: #E5CB8A;
+$anthracite: #1C1A19;
+$mainboard: #201E1D;
+$mainboardtransparent: #201e1db9;
+$border: #4c4431;
+$brown: #2D241F;
+$browntransparent: #2d241fb2;
+$gray1: #f6f6f6;
+$gray2: #eaeaea;
+$gray3: #353535; */

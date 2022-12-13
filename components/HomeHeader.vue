@@ -12,7 +12,9 @@
 
 header {
     height: 50vh;
-    border: 1px solid blue;
+    background-color: rgb(50, 50, 50);
+    display: grid;
+    place-items: center;
 }
 header h1 {
     color: var(--text);
