@@ -1,7 +1,7 @@
 <template>
-    <section class="">
+    <section class="agendaStripe">
 
-        <div class="box1">
+        <div class="box1 absolute top right bottom left">
             <ArtNouveauStripe />
         </div>
         
@@ -107,24 +107,18 @@ getItems({ collection: "Agenda" })
 </script>
 
 <style scoped>
-section {
+.agendaStripe {
     color: var(--text);
     margin: 100px 0;
-    padding-bottom: 50px;
+    padding: 50px 0 40px 0 ;
     position: relative;
     overflow: hidden;
 }
 .box1 {
     z-index: -1;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-
 }
 .box2 {
-    z-index: 9;
+    z-index: 5;
 }
 .mainWidthFrame {
     width: var(--main-width);
@@ -145,7 +139,7 @@ section {
     padding: 20px;
     border-bottom-left-radius: 60px;
     box-shadow: var(--card-shadow);
-    margin: 50px 20px 50px 0;
+    margin: 0 20px 0 0;
     z-index: 1;
     display: inline-block;
 }
@@ -183,6 +177,7 @@ section {
     background: linear-gradient(87deg, rgba(0, 0, 0, 0) 0%, var(--second-bg) 100%); 
 }
 .arrowBox {
+    margin-top: 40px;
     display: flex;
     justify-content: center;
     gap: 50px;

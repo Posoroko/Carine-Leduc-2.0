@@ -1,5 +1,5 @@
 <template>
-	<div class="">
+	<div class="bigBox full">
 		<div class="artDecoFrame absolute top left">
 			<ArtDecoTopLeft />
 		</div>
@@ -29,6 +29,9 @@ import ArtDecoTopRight from '@/components/cardTable/ArtDecoTopRight'
 
 
 <style>
+.bigBox{
+	position: relative;
+}
 .artDecoFrame {
 	width: 100%;
 }

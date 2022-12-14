@@ -1,6 +1,6 @@
 <template>
-    <section class="table">
-        <div class="box2 absolute top right bottom left">
+    <section class="table r">
+        <div class="box1 absolute top right bottom left">
             <ArtDeco />
         </div>
         
@@ -50,7 +50,7 @@ getItems({ collection: "Prestations" })
 .table {
     width: var(--main-width);
     background-color: var(--second-bg);
-    padding: 10vw;
+    padding: 90px 60px;
     margin: 20px auto;
     display: flex;
     justify-content: center;
@@ -60,7 +60,7 @@ getItems({ collection: "Prestations" })
     overflow: hidden;
 }
 .box1 {
-    z-index: 1;
+    z-index: 0;
 }
 .box2 {
     z-index: 5;
@@ -68,6 +68,7 @@ getItems({ collection: "Prestations" })
 .cardBox {
     width: min(200px, 30%);
     aspect-ratio: 5/9;
+
     border-radius: 5px;
     overflow: hidden;
     position: relative;
