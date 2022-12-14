@@ -340,7 +340,6 @@
     width: 100%;
     height: 100%;
     opacity: 0.2;
-    position: absolute;
 }
 .bandeauBox svg {
     min-width: 100vw;

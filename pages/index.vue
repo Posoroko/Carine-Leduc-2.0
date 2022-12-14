@@ -14,14 +14,14 @@
         </section>
 
         <homeCardTable />
-
+        
         <AgendaStripe />
         
     </main>
 </template>
 
 <script setup>
-import AgendaStripe from '@/components/homepage/agendaStripe/AgendaStripe.vue'
+import AgendaStripe from '@/components/homepage/agendaStripe/AgendaStripe'
 
 </script>
 

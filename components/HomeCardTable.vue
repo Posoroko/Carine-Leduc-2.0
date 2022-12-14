@@ -1,9 +1,22 @@
 <template>
     <section class="table">
-        <TitleBar title="Prestations"/>
+        <div class="box2 absolute top right bottom left">
+            <ArtDeco />
+        </div>
+        
+        <div class="box2">
+            <TitleBar title="Prestations" link="prestation)ç"/>
+        </div>
 
-        <ArtDeco />
         <div class="cardBox" v-for="presta in prestations" :key="presta.name">
+            <div class="underCard">
+                <p class="prestaDescription">
+                    {{ presta.description }}
+                </p>
+
+                <button class="button">découvrir</button>
+            </div>
+
             <ServiceCard :name='presta.value' />
         </div>
         
@@ -46,15 +59,38 @@ getItems({ collection: "Prestations" })
     position: relative;
     overflow: hidden;
 }
+.box1 {
+    z-index: 1;
+}
+.box2 {
+    z-index: 5;
+}
 .cardBox {
     width: min(200px, 30%);
     aspect-ratio: 5/9;
     border-radius: 5px;
     overflow: hidden;
     position: relative;
-    cursor: pointer;
+    box-shadow: var(--card-shadow);
 }
-
-
+.underCard {
+    background-color: var(--main-bg);
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+    left: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.prestaDescription {
+    color: var(--text);
+    text-align: center;
+}
 
 </style>

@@ -12,3 +12,17 @@ body {
 .pointer {
     cursor: pointer;
 }
+
+.button {
+    color: var(--main-bg);
+    padding: 5px 15px;
+    background-color: var(--main-contrast);
+    border: none;
+    border-radius: 5px;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: var(--main-contrast-hover);
+}

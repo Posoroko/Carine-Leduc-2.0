@@ -20,13 +20,9 @@ const adjustFontSizeToCardWidth = () => {
     while(card.value.offsetWidth - 15 > cardTitle.value.offsetWidth){
         fontSize++
         cardTitle.value.style.fontSize = fontSize + "px"
-        // titleShadow.value.style.fontSize = fontSize * 1.1 + "px"
         console.log(card.value.offsetWidth - 15, cardTitle.value.offsetWidth)
     }
 }
-// onMounted(() => {
-//     adjustFontSizeToCardWidth()
-// })
 
 </script>
 
@@ -35,6 +31,8 @@ const adjustFontSizeToCardWidth = () => {
     width: 100%;
     height: 100%;
     position: relative;
+    opacity: 1;
+    transition: opacity 300ms ease;
 }
 
 .card img {
@@ -52,6 +50,13 @@ const adjustFontSizeToCardWidth = () => {
     transform: translate(-50%, -50%);
 }
 .cardBox:hover .card {
-    transform: rotateY(90deg);
+    opacity: 0.2;
+    transition: opacity 300ms ease;
+    pointer-events: none;
+}
+
+.cardBox:hover .card .cardTitle{
+    opacity: 0;
+    transition: opacity 300ms ease;
 }
 </style>

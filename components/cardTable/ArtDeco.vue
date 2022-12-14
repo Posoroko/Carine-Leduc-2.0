@@ -1,5 +1,5 @@
 <template>
-	<div class="absolute top right bottom left">
+	<div class="">
 		<div class="artDecoFrame absolute top left">
 			<ArtDecoTopLeft />
 		</div>

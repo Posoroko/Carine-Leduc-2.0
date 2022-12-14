@@ -1,88 +1,93 @@
 <template>
     <section class="">
 
-        <TitleBar title="Agenda"/>
+        <div class="box1">
+            <ArtNouveauStripe />
+        </div>
         
-        <ArtNouveauStripe />
+        <div class="box2">
+            <TitleBar title="Agenda" link="/prestations"/>
+        </div>
+        
+        <div class="mainWidthFrame">
+            <div class="scroller">
+                <div class="movingFrame" ref="movingFrame">
+                    <figure class="dateCard" v-for="(date, index) in dates" :key="index" >
+                        <div class="cardContent">
+                            <p class="date">{{ date.date }}</p>
+                            
+                            <p class="title">{{ date.title }}</p>
 
-
-            <div class="mainWidthFrame">
-                <div class="scroller">
-                    <div class="movingFrame" ref="movingFrame">
-                        <figure class="dateCard" v-for="(date, index) in dates" :key="index" >
-                            <div class="cardContent">
-                                <p class="date">{{ date.date }}</p>
-                                <p class="title">{{ date.title }}</p>
-
-                                <p class="description">
-                                    <span>{{ date.description }}</span>
-                                    <div class="lastLineHider">
-
-                                    </div>
-                                </p>
-                                <button class="readMore"><NuxtLink>lire...</NuxtLink></button>
+                            <div class="description">
+                                <span>{{ date.description }}</span>
+                                
+                                <div class="lastLineHider"></div>
                             </div>
 
-                            
-                        </figure>
-
+                            <button class="button readMore marginTop50"><NuxtLink>lire...</NuxtLink></button>
                         </div>
-                        <span  class="icon arrow arrowLeft" @click="scrollClick" data-scroll="left">arrow_back_ios</span>
+                    </figure>
 
-                        <span v-if="currentScrollPosition < 0" class="icon arrow arrowRight" @click="scrollClick" data-scroll="right">arrow_forward_ios</span>
+                </div>
+
+                <div class="arrowBox">
+                    <span  class="icon arrow arrowLeft" @click="handleArrowClicks" data-direction="left">arrow_back_ios</span>
+
+                    <span class="icon arrow arrowRight" :class="{fadedArrow: currentScrollPosition >= 0}" @click="handleArrowClicks" data-direction="right">arrow_forward_ios</span>
                 </div>
             </div>
-
-    
-    
+        </div>
     </section>
-
 </template>
 
 <script setup>
 import ArtNouveauStripe from '@/components/deco/ArtNouveauStripe.vue'
 import TitleBar from '@/components/homepage/TitleBar.vue'
 
+//DOM element
 const movingFrame = ref(null)
+// <=
 
 const currentScrollPosition = ref(0);
 
-const scrollClick = (e) => {
-    const way = e.target.getAttribute('data-scroll')
+const handleArrowClicks = (e) => {
+    const way = e.target.getAttribute('data-direction')
+
+    agendaScroll(way)
+
+}
+
+let scrollLength = 220
+
+
+const agendaScroll = (scrollDirection) => {
+
     let newScrollPosition = 0;
 
-    let scrollValue = 0;
-    switch(way) {
+    switch(scrollDirection) {
         case'left':
-            newScrollPosition = currentScrollPosition.value - 200
+            newScrollPosition = currentScrollPosition.value - scrollLength
             break
         case'right':
             if(currentScrollPosition.value < 0) {
-                newScrollPosition = currentScrollPosition.value + 200
+                newScrollPosition = currentScrollPosition.value + scrollLength
             }
     }
 
-    
-
     movingFrame.value.animate([
-    // keyframes
-    { transform: `translateX(${currentScrollPosition.value}px)` },
-    { transform: `translateX(${newScrollPosition}px)` }
+        { transform: `translateX(${currentScrollPosition.value}px)` },
+        { transform: `translateX(${newScrollPosition}px)` }
     ], {
-    // timing options
-    duration: 300,
-    iterations: 1,
-    fill: "forwards",
-    easing: "ease"
-});
+        duration: 300,
+        iterations: 1,
+        fill: "forwards",
+        easing: "ease"
+    });
 
-currentScrollPosition.value = newScrollPosition
-
-console.log(currentScrollPosition.value < 0)
+    //update scroll position
+    currentScrollPosition.value = newScrollPosition
+    // <=
 }
-
-
-
 
 
 //fetch data
@@ -105,19 +110,33 @@ getItems({ collection: "Agenda" })
 section {
     color: var(--text);
     margin: 100px 0;
+    padding-bottom: 50px;
     position: relative;
     overflow: hidden;
 }
+.box1 {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 
+}
+.box2 {
+    z-index: 9;
+}
 .mainWidthFrame {
     width: var(--main-width);
     margin: auto;
     position: relative;
+
 }
 
 .movingFrame {
     position: relative;
-    white-space: nowrap
+    white-space: nowrap;
+    padding-left: 20px
 }
 .dateCard {
     font-family: 'Work Sans';
@@ -126,7 +145,7 @@ section {
     padding: 20px;
     border-bottom-left-radius: 60px;
     box-shadow: var(--card-shadow);
-    margin: 50px 20px;
+    margin: 50px 20px 50px 0;
     z-index: 1;
     display: inline-block;
 }
@@ -135,6 +154,7 @@ section {
     height: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     white-space: pre-wrap;
 }
 .date {
@@ -162,38 +182,24 @@ section {
     left: 0;
     background: linear-gradient(87deg, rgba(0, 0, 0, 0) 0%, var(--second-bg) 100%); 
 }
-
+.arrowBox {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
 .arrow {
     font-size: 60px;
     margin: 0 20px;
-    position: absolute;
     z-index: 2;
-    top: 50%;
-    transform: translateY(-50%);
     cursor: pointer;
     user-select: none;
-    opacity: 0;
-    transition: opacity 300ms ease;
-}
-
-.scroller:hover .arrow {
     opacity: 1;
     transition: opacity 300ms ease;
 }
-
-
-
-.arrowLeft {
-    left: 0;
-}
-.arrowRight {
-    right: 0;
+.fadedArrow {
+    opacity: 0.1;
+    transition: opacity 300ms ease;
+    cursor: auto;
 }
 
-.readMore {
-
-    margin: 30px 20px 20px 20px;
-    cursor: pointer;
-    display: inline-block;
-}
 </style>

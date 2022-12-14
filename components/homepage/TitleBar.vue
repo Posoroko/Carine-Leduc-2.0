@@ -1,11 +1,15 @@
 <template>
     <div class="titleBox">
-        <h2 class="sectionTitle">{{ title }}</h2>
+        <h2 class="sectionTitle">
+            <NuxtLink :to="link"> {{ title }} </NuxtLink>
+        </h2>
     </div>
 </template>
 
 <script setup>
-const props = defineProps(['title'])
+const props = defineProps(['title', 'link'])
+
+
 </script>
 
 <style scoped>
@@ -19,5 +23,6 @@ const props = defineProps(['title'])
     font-family: 'Work Sans';
     font-size: 60px;
     text-align: center;
+    cursor: pointer;
 }
 </style>
