@@ -16,12 +16,15 @@
         <homeCardTable />
         
         <AgendaStripe />
+
+        <AboutSection />
         
     </main>
 </template>
 
 <script setup>
 import AgendaStripe from '@/components/homepage/agendaStripe/AgendaStripe'
+import AboutSection from '@/components/homepage/aboutSection/AboutSection'
 
 </script>
 
