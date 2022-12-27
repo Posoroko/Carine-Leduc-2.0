@@ -14,10 +14,14 @@
         </section>
 
         <homeCardTable />
+
+        <ImageBox image="/images/accueil.jpg" />
         
         <AgendaStripe />
 
         <AboutSection />
+
+        <NewsletterWidget />
         
     </main>
 </template>
@@ -25,6 +29,8 @@
 <script setup>
 import AgendaStripe from '@/components/homepage/agendaStripe/AgendaStripe'
 import AboutSection from '@/components/homepage/aboutSection/AboutSection'
+import ImageBox from '@/components/deco/ImageBox'
+import NewsletterWidget from '@/components/misc/NewsletterWidget'
 
 </script>
 

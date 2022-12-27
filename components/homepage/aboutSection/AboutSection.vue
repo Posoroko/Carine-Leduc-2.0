@@ -31,21 +31,21 @@
 
                 <div class="linkCard">
                     <NuxtLink class="link" to="/a-propos">
-                        <h4> {{ content.image1Title }} </h4>
+                        <h4 class="aboutCardTitle"> {{ content.image1Title }} </h4>
                         <p class="cardText"> {{ content.image1Text }} </p>
                     </NuxtLink>
                 </div>
                 
                 <div class="linkCard">
                     <NuxtLink class="link" to="/a-propos">
-                        <h4> {{ content.image2Title }} </h4>
+                        <h4 class="aboutCardTitle"> {{ content.image2Title }} </h4>
                         <p class="cardText"> {{ content.image2Text }} </p>
                     </NuxtLink> 
                 </div>
                 
                 <div class="linkCard">
                     <NuxtLink class="link" to="/a-propos">
-                        <h4> {{ content.image3Title }} </h4>
+                        <h4 class="aboutCardTitle"> {{ content.image3Title }} </h4>
                         <p class="cardText"> {{ content.image3Text }} </p>
                     </NuxtLink>
                 </div>
@@ -115,7 +115,7 @@ section {
 
 .imageTitle {
     color: rgb(255, 249, 223);
-    font-size: 60px;
+    font-size: max(20px, 3vw);
     font-weight: 200;
     font-family: 'Work Sans', sans-serif;
     position: absolute;
@@ -236,15 +236,42 @@ section {
 }
 
 .linkCard {
+    font-family: 'Work Sans', sans-serif;
     color: var(--text);
-    font-family: 'Work Sans';
     background-color: var(--main-bg);
     border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 20px;
+    border-bottom-left-radius: 60px;
+    box-shadow: var(--card-shadow);
+    margin: 0 20px 0 0;
+    z-index: 1;
+    display: inline-block;
+    transition: 300ms border ease;
+}
+@media (max-width: 849px) {
+    .linkCard {
+        width: 100%;
+    }
+}
+@media (min-width: 850px) {
+    .linkCard {
+        width: 200px;
+    }
+}
+.linkCard:hover {
+    border: 1px solid var(--main-contrast);
+    transition: 300ms border ease;
 }
 
-.linkCard h4 {
+
+.linkCard .link {
+    padding: 25px;
+    padding-bottom: 40px;
+    display: block;
+}
+
+
+.aboutCardTitle {
     font-size: 22px;
     font-weight: 400;
 }

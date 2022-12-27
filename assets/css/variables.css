@@ -14,7 +14,7 @@
     --main-contrast-hover : #bfaa74;
     
     --text: rgb(179, 179, 179);
-
+    --error: rgb(134, 60, 59);
 
 
     /* layout parameters */
@@ -26,6 +26,11 @@
     /* element styles */
 
     --card-shadow: -2px 2px 10px rgba(0, 0, 0, 0.728);
+
+
+    /* fonts */
+
+    --main-text: 'Work Sans', sans-serif;
 
 }
 

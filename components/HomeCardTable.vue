@@ -9,14 +9,14 @@
         </div>
 
         <div class="cardBox" v-for="presta in prestations" :key="presta.name">
-            <div class="underCard">
+            <NuxtLink class="underCard" to="/a-propos">
                 <p class="prestaDescription">
                     {{ presta.description }}
                 </p>
 
-                <button class="button">découvrir</button>
-            </div>
+                <span>découvrir...</span>
 
+            </NuxtLink>
             <ServiceCard :name='presta.value' />
         </div>
         
@@ -63,6 +63,7 @@ getItems({ collection: "Prestations" })
     z-index: 0;
 }
 .box2 {
+    width: 100%;
     z-index: 5;
 }
 .cardBox {
@@ -84,14 +85,19 @@ getItems({ collection: "Prestations" })
     right: 1px;
     bottom: 1px;
     left: 1px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+    display: grid;
+    place-items: center;
 }
 .prestaDescription {
     color: var(--text);
     text-align: center;
+}
+
+.underCard span {
+    color: var(--text);
+    font-family: 'Work Sans';
+    position: absolute;
+    bottom: 5%;
 }
 
 </style>

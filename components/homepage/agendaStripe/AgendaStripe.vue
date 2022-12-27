@@ -24,7 +24,7 @@
                                 <div class="lastLineHider"></div>
                             </div>
 
-                            <button class="button readMore marginTop50"><NuxtLink>lire...</NuxtLink></button>
+                            <button class="readMore marginTop50"><NuxtLink>plus...</NuxtLink></button>
                         </div>
                     </figure>
 
@@ -92,6 +92,7 @@ const agendaScroll = (scrollDirection) => {
 
 //fetch data
 const { getItems } = useDirectusItems();
+
 const dates = ref(null);
 getItems({ collection: "Agenda" })
     .then(res => {
@@ -195,6 +196,18 @@ getItems({ collection: "Agenda" })
     opacity: 0.1;
     transition: opacity 300ms ease;
     cursor: auto;
+}
+
+.readMore {
+    width: 100%;
+    font-family: 'Work Sans';
+    font-size: 20px;
+    font-weight: 200;
+    color: var(--text);
+    background-color: var(--second-bg);
+    border: none;
+    text-align: end;
+    cursor: pointer;
 }
 
 </style>
