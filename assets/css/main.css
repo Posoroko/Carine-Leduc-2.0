@@ -31,3 +31,11 @@ body {
     width: var(--main-width);
     margin: auto;
 }
+.midWidth {
+    width: var(--mid-width);
+    margin: auto;
+}
+
+
+
+    

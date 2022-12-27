@@ -14,7 +14,7 @@ const props = defineProps(['title', 'link'])
 
 <style scoped>
 .titleBox {
-    width: var(--main-width);
+    width: 100%;
     padding: 0 0 20px 0;
     margin: auto;
 
@@ -22,8 +22,14 @@ const props = defineProps(['title', 'link'])
 .sectionTitle {
     color: var(--text);
     font-family: 'Work Sans';
-    font-size: 60px;
+    font-weight: 200;
+    font-size: clamp(30px, 3vw, 50px);
     text-align: center;
     cursor: pointer;
 }
+
+
+
+
+
 </style>

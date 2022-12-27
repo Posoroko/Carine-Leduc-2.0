@@ -1,5 +1,5 @@
 <template>
-    <section class="table r">
+    <section class="table">
         <div class="box1 absolute top right bottom left">
             <ArtDeco />
         </div>
@@ -48,7 +48,7 @@ getItems({ collection: "Prestations" })
 
 
 .table {
-    width: var(--main-width);
+    width: var(--mid-width);
     background-color: var(--second-bg);
     padding: 90px 60px;
     margin: 20px auto;

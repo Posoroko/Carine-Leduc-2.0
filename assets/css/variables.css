@@ -7,7 +7,8 @@
     --main-bg: #1c1a19;
     --second-bg: #201e1d;
 
-    --border: #4c4431;
+    --border: #313131;
+    /* --border: #4c4431; */
 
     --main-contrast : #e5cb8a;
     --main-contrast-hover : #bfaa74;
@@ -19,6 +20,7 @@
     /* layout parameters */
 
     --main-width: min(1600px, 90vw);
+    --mid-width: min(1000px, 90vw);
 
 
     /* element styles */
