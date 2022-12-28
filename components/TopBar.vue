@@ -13,19 +13,14 @@
 import NavBar from '@/components/topBar/NavBar.vue'
 import Menu from '@/components/topBar/Menu.vue'
 
-const { getItems } = useDirectusItems();
-
-let tabs = ref(null);
-
-getItems({ collection: "Tabs" })
-    .then(res => {
-        tabs.value = res
-    })
-    .catch(err => {
-        console.log(err.message)
-    })
-
-
+const tabs = ref([
+    { name: 'Accueil', link: '/' },
+    { name: 'Blog', link: '/blog' },
+    { name: 'A propos', link: '/a-propos' },
+    { name: 'Prestations', link: '/prestations' },
+    { name: 'Contact', link: '/contact' },
+    { name: 'Agenda', link: '/agenda' },
+])
 
 
 

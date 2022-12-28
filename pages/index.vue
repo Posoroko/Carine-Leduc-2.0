@@ -15,7 +15,7 @@
 
         <homeCardTable />
 
-        <ImageBox image="/images/accueil.jpg" />
+        <ImageBox imageLink="_nuxt/assets/images/deco/lune_fleurie.png"/>
         
         <AgendaStripe />
 

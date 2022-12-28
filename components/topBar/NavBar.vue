@@ -11,7 +11,6 @@
 </template>
 
 <script setup>
-
 const props = defineProps(['tabs'])
 
 </script>
