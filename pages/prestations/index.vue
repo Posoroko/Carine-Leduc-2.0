@@ -55,7 +55,7 @@ const prestations = ref(null)
 const soins = ref(newPresta())
 const massages = ref(newPresta())
 const tarot = ref(newPresta())
-const 
+
 
 
 
