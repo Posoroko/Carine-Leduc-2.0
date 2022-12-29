@@ -1,6 +1,6 @@
 <template>
     <footer>
-        footer content!
+        <img src="@/assets/images/deco/foret01.png" alt="">
     </footer>
 </template>
 
@@ -10,7 +10,11 @@
 
 <style scoped>
 footer {
-    height: 30vh;
-    border: 1px solid red;
+    width: 100%;
+    margin-top: 100px;
+}
+footer img {
+    width: 100%;
+    opacity: 0.8;
 }
 </style>

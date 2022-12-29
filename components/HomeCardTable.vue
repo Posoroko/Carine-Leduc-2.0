@@ -5,7 +5,7 @@
         </div>
         
         <div class="box2">
-            <TitleBar title="Prestations" link="prestation)ç"/>
+            <TitleBar title="Prestations" link="/prestations"/>
         </div>
 
         <div class="cardBox" v-for="presta in prestations" :key="presta.name">
@@ -17,7 +17,7 @@
                 <span>découvrir...</span>
 
             </NuxtLink>
-            <ServiceCard :name='presta.value' />
+            <ServiceCard :name='presta.displayName' />
         </div>
         
     </section>

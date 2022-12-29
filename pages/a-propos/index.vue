@@ -2,13 +2,15 @@
     <AboutHeader :headerImageSrc="headerImageSrc" />
 
     <blockquote class="intro" v-if="content">
-            {{ content.accroche }}
+            <span class="quote">{{ content.accroche }}</span>
+            <img class=""  src="@/assets/images/deco/cercle-dot.png" alt="">
     </blockquote>
 
     <main>
         <section class="board" v-if="content">
             <p class="presentation">
                 {{ content.presentation }}
+                
             </p>
         </section>
 
@@ -42,14 +44,24 @@ getItems({ collection: "Page_A_Propos" })
     height: 75vh;
     text-align: center;
     color: var(--text);
-    font-size: clamp(30px, 5vw, 130px);
-    padding: 100px;
+    font-size: clamp(30px, 4vw, 60px);
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+.quote {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: grid;
     place-items: center;
 }
-
+.intro img {
+    height: 100%;
+}
 .board {
-    width: var(--main-width);
+    width: var(--mid-width);
     background-color: var(--second-bg);
     padding: 50px;
     border-radius: 20px;

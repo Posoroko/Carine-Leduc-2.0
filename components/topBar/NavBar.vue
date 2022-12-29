@@ -1,11 +1,9 @@
 <template>
     <div class="box">
-        <p class="tab work" v-for='tab in tabs' :key="tab.name">
-            <NuxtLink :to="tab.link"> 
+            <NuxtLink class="tab" v-for='tab in tabs' :key="tab.name" :to="tab.link"> 
                 {{ tab.name }} 
                 <div class="line"></div>
             </NuxtLink>
-        </p>
     </div>
 
 </template>
@@ -29,6 +27,7 @@ const props = defineProps(['tabs'])
     display: inline-block;
     position: relative;
 }
+
 .line {
     width: 100%;
     height: 100%;
