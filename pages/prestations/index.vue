@@ -165,7 +165,7 @@ header {
     top: 0;
     left: 0;
     background-image: url("_nuxt/assets/images/deco/motif feuille.jpg");
-    opacity: 0.1;
+    opacity: 0.08;
     z-index: -1;
 }
 

@@ -2,7 +2,7 @@
     <section class="agendaStripe">
 
         <div class="box1 absolute top right bottom left">
-            <ArtNouveauStripe />
+            <!-- <ArtNouveauStripe /> -->
         </div>
         
         <div class="box2">
@@ -117,6 +117,8 @@ getItems({ collection: "Agenda" })
 }
 .box1 {
     z-index: -1;
+    background-image: url('_nuxt/assets/images/deco/patern-feuille02.jpg');
+    opacity: 0.05;
 }
 .box2 {
     z-index: 5;
