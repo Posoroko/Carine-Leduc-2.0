@@ -10,20 +10,15 @@
         </div>
     </header>
 
-    <main class="prestaBoard" v-if="prestations && content">
+    <main class="prestaBoard" v-if="prestations">
         <div class="background"></div>
 
-        <section class="soins prestaPanel">
-            <header>
-                <h2 class="prestaTitle">{{ soins.displayName }}</h2>
+        <section class="soins prestaPanel panel" v-for="presta in prestations" :key="presta.id">
+            <header class="r">
+                <h2 class="prestaTitle">{{ presta.displayName }}</h2>
+                <p class="accroche">{{ presta.accroche}}</p>
                 <PrestaCard image="_nuxt/assets/images/deco/carte.jpg"/>
             </header>
-            <div>
-                <p>Soins énergétiques</p>
-                <div v-for="soin in soins.content" :key="soin.name">
-                    <p class="prestaName">{{ soin.name }}</p>
-                </div>
-            </div>
         </section>
     </main>
 
@@ -36,72 +31,18 @@
 <script setup>
 import PrestaCard from '@/components/prestations/PrestaCard.vue'
 
-const { getItems } = useDirectusItems();
+import { usePrestaStore } from '@/stores/prestations';
 
-//chaque variable corespondant à une prestation est un objet avec les propriétés suivantes:
-const newPresta = () => {
-    return {
-        name: null,
-        displayName: null,
-        accroche: null,
-        link: null,
-        description: null,
-    }
-}
-// <=
+const prestaStore = usePrestaStore();
 
-const content = ref(null)
-const prestations = ref(null)
-const soins = ref(newPresta())
-const massages = ref(newPresta())
-const tarot = ref(newPresta())
+const prestations = prestaStore.prestations;
 
 
 
 
 
 
-getItems({ collection: "Page_prestations" }).then(res => {
-    content.value = res
-    // console.log( "page content:" , content.value)
-})
-.catch(err => {
-    console.log(err.message)
-})
 
-//import des prestations
-getItems({ collection: "Prestations" }).then(res => {
-    prestations.value = res
-    // console.log( "prestations:" , prestations.value)
-    distributeData(res)
-})
-.catch(err => {
-    console.log(err.message)
-})
-
-
-//import de soins énergétiques
-getItems({ collection: "Soins" }).then(res => {
-    soins.value.content = res
-    // console.log( "soins:" , soins.value.content)
-})
-.catch(err => {
-    console.log(err.message)
-})
-
-// "Prestation" comprend les données (titres, description, etc) de chaque prestations. 
-// Ces données sont triées et distribuée dans les variables correspondantes.
-
-const distributeData = (res) => {
-    let soinsData = res.find((obj) => {
-        return obj.name === "soins"
-    })
-    soins.value.displayName = soinsData.displayName
-    soins.value.accroche = soinsData.accroche
-    soins.value.link = soinsData.link
-    soins.value.description = soinsData.description
-}
-// <=
 
 
 </script>
@@ -152,11 +93,14 @@ header {
 
 .prestaBoard {
     width: var(--mid-width);
-    padding: 100px 150px;
+    padding: 50px;
     border-radius: 20px;
     overflow: hidden;
-    margin: auto;
+    margin: 50px auto;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 .prestaBoard .background {
     width: 100%;
@@ -172,8 +116,10 @@ header {
 
 .prestaPanel {
     width: 100%;
-    background-color: black;
-    padding: 100px;
+    background-color: var(--panel);
+    border: 1px solid var(--border);
+    box-shadow: var(--panel-shadow);
+    position: relative;
     z-index: 10;
 }
 
@@ -182,7 +128,6 @@ header {
     font-family: 'IM Fell English SC', serif;
     color: var(--main-contrast);
     text-align: center;
-    margin-bottom: 50px;
 }
 
 .prestaName {

@@ -15,13 +15,15 @@ const props = defineProps(['tabs'])
 
 <style scoped>
 .box {
-    color: var(--text);
+    
     font-size: 18px;
     display: flex;
     justify-content: center;
     gap: 40px;
 }
 .tab{
+    color: var(--text);
+    font-family: var(--main-text);
     font-size: 24px;
     padding: 5px 0;
     display: inline-block;

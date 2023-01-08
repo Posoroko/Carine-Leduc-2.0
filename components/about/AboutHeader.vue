@@ -17,7 +17,7 @@
 
         <div class="rightHeaderBox headerBox">
             <div class="frame">
-                <img class="aboutImg" :src="`https://ku3vu7zb.directus.app/assets/${headerImageSrc}.jpg`" alt="">
+                <img class="aboutImg" src="@/assets/images/headers/carine.jpg" alt="">
             </div>
         </div>
         
@@ -25,26 +25,21 @@
 </template>
 
 <script setup>
-const { getItems } = useDirectusItems();
-
-const props = defineProps(['headerImageSrc'])
+import { useAboutStore } from '@/stores/about.js'
+const aboutStore = useAboutStore()
 
 const jobs = ref(null)
 const qualifications = ref(null)
 
-getItems({ collection: "Jobs" }).then(res => {
-    jobs.value = res
-})
-.catch(err => {
-    console.log(err.message)
+const props = defineProps(['headerImageSrc'])
+
+onMounted(async () => {
+    jobs.value = await aboutStore.getJobs
+    qualifications.value = await aboutStore.getQualifications
 })
 
-getItems({ collection: "Qualifications" }).then(res => {
-    qualifications.value = res
-})
-.catch(err => {
-    console.log(err.message)
-})
+
+
 
 
 </script>

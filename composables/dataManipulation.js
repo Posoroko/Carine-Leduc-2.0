@@ -13,3 +13,5 @@ export const isEmailIsWellFormated = (email) => {
 
         return re.test(email)
 }
+
+

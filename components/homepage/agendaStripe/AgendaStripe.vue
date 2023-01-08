@@ -6,7 +6,7 @@
         </div>
         
         <div class="box2">
-            <TitleBar title="Agenda" link="/prestations"/>
+            <TitleBar title="Agenda" link="/agenda"/>
         </div>
         
         <div class="mainWidthFrame">
@@ -41,7 +41,7 @@
 </template>
 
 <script setup>
-import ArtNouveauStripe from '@/components/deco/ArtNouveauStripe.vue'
+// import ArtNouveauStripe from '@/components/deco/ArtNouveauStripe.vue'
 import TitleBar from '@/components/homepage/TitleBar.vue'
 
 //DOM element
@@ -110,14 +110,13 @@ getItems({ collection: "Agenda" })
 <style scoped>
 .agendaStripe {
     color: var(--text);
-    margin: 100px 0;
     padding: 50px 0 40px 0 ;
     position: relative;
     overflow: hidden;
 }
 .box1 {
     z-index: -1;
-    background-image: url('_nuxt/assets/images/deco/patern-feuille02.jpg');
+    background-image: url('@/assets/images/deco/patern-feuille02.jpg');
     opacity: 0.05;
 }
 .box2 {

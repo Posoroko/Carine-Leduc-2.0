@@ -16,7 +16,6 @@ import Menu from '@/components/topBar/Menu.vue'
 const tabs = ref([
     { name: 'Accueil', link: '/' },
     { name: 'Blog', link: '/blog' },
-    
     { name: 'Prestations', link: '/prestations' },
     { name: 'Contact', link: '/contact' },
     { name: 'Agenda', link: '/agenda' },

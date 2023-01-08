@@ -18,6 +18,6 @@ const props = defineProps(['image'])
     background-color: var(--main-bg);
     border-radius: 10px;
     overflow: hidden;
-
+    position: absolute;
 }
 </style>

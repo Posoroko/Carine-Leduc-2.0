@@ -8,11 +8,9 @@
             <TitleBar title="Prestations" link="/prestations"/>
         </div>
 
-        <div class="cardBox" v-for="presta in prestations" :key="presta.name">
-            <NuxtLink class="underCard" to="/a-propos">
-                <p class="prestaDescription">
-                    {{ presta.description }}
-                </p>
+        <div class="cardBox" v-for="presta in prestaStore.getPrestations" :key="presta.id">
+            <NuxtLink class="underCard" :to="presta.path">
+                <p class="prestaDescription">{{presta.description}}</p>
 
                 <span>découvrir...</span>
 
@@ -24,34 +22,24 @@
 </template>
 
 <script setup>
-import ArtDeco from '@/components/cardTable/ArtDeco.vue'
-import ServiceCard from '@/components/cardTable/ServiceCard'
+import ArtDeco from '@/components/homepage/cardTable/ArtDeco.vue'
+import ServiceCard from '@/components/homepage/cardTable/ServiceCard'
 import TitleBar from '@/components/homepage/TitleBar.vue'
 
-const { getItems } = useDirectusItems();
+import { usePrestaStore } from '@/stores/prestations'
 
-let prestations = ref(null);
+const prestaStore = usePrestaStore()
 
-getItems({ collection: "Prestations" })
-    .then(res => {
-        prestations.value = res
-    })
-    .catch(err => {
-        console.log(err.message)
-    })
 
 </script>
 
 <style>
 
-
-
-
 .table {
     width: var(--mid-width);
     background-color: var(--second-bg);
     padding: 90px 60px;
-    margin: 20px auto;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;

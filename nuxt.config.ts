@@ -8,7 +8,8 @@ export default defineNuxtConfig({
     ],
 
     modules: [
-      "nuxt-directus"
+      "nuxt-directus",
+      "@pinia/nuxt"
     ],
 
     directus: {

@@ -68,7 +68,6 @@ let content = ref(null);
 getItems({ collection: "HomepageAbout" })
     .then(res => {
         content.value = res
-        console.log(content.value)
     })
     .catch(err => {
         console.log(err.message)

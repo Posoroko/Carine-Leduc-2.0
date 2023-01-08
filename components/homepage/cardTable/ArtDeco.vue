@@ -19,10 +19,10 @@
 </template>
 
 <script setup>
-import ArtDecoBottomLeft from '@/components/cardTable/ArtDecoBottomLeft'
-import ArtDecoBottomRight from '@/components/cardTable/ArtDecoBottomRight'
-import ArtDecoTopLeft from '@/components/cardTable/ArtDecoTopLeft'
-import ArtDecoTopRight from '@/components/cardTable/ArtDecoTopRight'
+import ArtDecoBottomLeft from '@/components/homepage/cardTable/ArtDecoBottomLeft'
+import ArtDecoBottomRight from '@/components/homepage/cardTable/ArtDecoBottomRight'
+import ArtDecoTopLeft from '@/components/homepage/cardTable/ArtDecoTopLeft'
+import ArtDecoTopRight from '@/components/homepage/cardTable/ArtDecoTopRight'
 
 </script>
 
