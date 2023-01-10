@@ -1,25 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap');
 
 :root {
 
-    --main-text: 'Work Sans', sans-serif;
+    /* fonts */
+    --main-text-font: 'Work Sans', sans-serif;
     --calligraphy: 'Fleur De Leah';
     --english: 'IM Fell English SC';
 
+    --blog-text-font: 'Old Standard TT', serif;
+
+    /* colors */
     --text: rgb(179, 179, 179);
+    --main-text-color: rgb(179, 179, 179);
+    --main-header-title: #e5cb8a;
+    --gold-text: #e5cb8a;
     --error: rgb(134, 60, 59);
 
-    --gold-text: #e5cb8a;
-    --main-header-title: #e5cb8a;
+    --blog-text-color: rgb(32, 32, 32);
+    --blog-color: rgb(32, 32, 32);
+
+    /* text sizes */
+
+    --item-title-size: clamp(22px, 3vw, 40px);
+    --item-subtitle-size: clamp(16px, 1.5vw, 25px);
+    --main-text-size: clamp(16px, 1.5vw, 18px)
 
 }
 
-
+.standard {
+    font-family: 'Old Standard TT', serif;
+}
 .fleur {
     font-family: 'Fleur De Leah';
 }

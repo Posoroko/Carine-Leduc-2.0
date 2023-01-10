@@ -15,3 +15,12 @@ export const isEmailIsWellFormated = (email) => {
 }
 
 
+const days = ['dimanche', 'dundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi']
+const months = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
+
+export const createDateString = (date) => {
+    
+    const string = `le ${days[date.getDay()]} ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`
+        
+    return string
+}

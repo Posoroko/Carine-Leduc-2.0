@@ -45,7 +45,6 @@ const showModal = () => {
     position: relative;
 }
 .menuIcon {
-    color: var(--text);
     font-size: 40px;
     font-weight: 100;
     background: none;
@@ -55,7 +54,6 @@ const showModal = () => {
 
 .modal {
     width: min(225px, 80%);
-    background-color: rgb(61, 52, 52);
     padding: 30px;
     border: none;
     border-radius: 10px;
@@ -92,13 +90,11 @@ const showModal = () => {
     }
 }
 .tab {
-    color: var(--text);
     font-size: 20px;
 }
 .closeIcon {
     font-size: 25px;
     font-weight: 100;
-    color: var(--text);
     margin: 20px;
     position: absolute;
     top: 0;

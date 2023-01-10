@@ -1,5 +1,5 @@
 <template>
-    <TopBar />
+    <TopBar :isBlog="false" />
     <div>
         <slot />
     </div>

@@ -39,3 +39,9 @@ h1 {
     margin: auto;
 
 }
+
+.board {
+    width: var(--mid-width);
+    margin: auto;
+}
+

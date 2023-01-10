@@ -42,6 +42,7 @@ export const usePrestaStore = defineStore('prestations', {
                 .then(data => {
                     // console.log(data.data)
                     this.prestations = data.data
+                    console.log('here we go again', this.prestations)
                     this.initializeAllTypesOfPrestations()
                 })
 
@@ -59,11 +60,23 @@ export const usePrestaStore = defineStore('prestations', {
                 await fetch(url)
                 .then(response => response.json())
                 .then(data => {
+                    //ajouter les items à la bonne prestation
+                    //utilisé pour le v-for sur la page des prestations
+                    this.prestations[i].items = data.data
+                    // <=
+                    
+                    //créer un conteneur pour chaque liste de prestaitons
+                    //utilisé sur la page de la prestation
                     this[activePresta[i]] = data.data
+                    // <=             
                     
                 })
             }
-
+            
+            this.dataDownloaded = true
         }
     }
+
+
+
 })

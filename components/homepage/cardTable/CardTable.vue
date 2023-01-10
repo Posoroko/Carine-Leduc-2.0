@@ -8,7 +8,7 @@
             <TitleBar title="Prestations" link="/prestations"/>
         </div>
 
-        <div class="cardBox" v-for="presta in prestaStore.getPrestations" :key="presta.id">
+        <div class="cardBox" v-for="presta in prestaStore.prestations" :key="presta.id">
             <NuxtLink class="underCard" :to="presta.path">
                 <p class="prestaDescription">{{presta.description}}</p>
 

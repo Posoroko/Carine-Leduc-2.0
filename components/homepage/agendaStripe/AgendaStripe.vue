@@ -12,7 +12,7 @@
         <div class="mainWidthFrame">
             <div class="scroller">
                 <div class="movingFrame" ref="movingFrame">
-                    <figure class="dateCard" v-for="(date, index) in dates" :key="index" >
+                    <figure class="dateCard" v-for="(date, index) in agendaStore.allDates" :key="index" >
                         <div class="cardContent">
                             <p class="date">{{ date.date }}</p>
                             
@@ -41,8 +41,10 @@
 </template>
 
 <script setup>
-// import ArtNouveauStripe from '@/components/deco/ArtNouveauStripe.vue'
+import { useAgendaStore } from '@/stores/agenda';
 import TitleBar from '@/components/homepage/TitleBar.vue'
+
+const agendaStore = useAgendaStore();
 
 //DOM element
 const movingFrame = ref(null)
@@ -89,20 +91,6 @@ const agendaScroll = (scrollDirection) => {
     // <=
 }
 
-
-//fetch data
-const { getItems } = useDirectusItems();
-
-const dates = ref(null);
-getItems({ collection: "Agenda" })
-    .then(res => {
-        dates.value = res
-        dates.value.forEach(date => {
-            date.date = dateToDayMontformat(date.date) //composable/dataManipulation
-        })
-    }).catch(err => {
-        console.log(err.message)
-    })
 
 
 </script>
@@ -158,7 +146,8 @@ getItems({ collection: "Agenda" })
 }
 .title {
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 300;
+    color: var(--gold-text);
     margin-top: 30px;
 }
 .description {

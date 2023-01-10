@@ -15,7 +15,6 @@ const props = defineProps(['tabs'])
 
 <style scoped>
 .box {
-    
     font-size: 18px;
     display: flex;
     justify-content: center;
@@ -23,7 +22,7 @@ const props = defineProps(['tabs'])
 }
 .tab{
     color: var(--text);
-    font-family: var(--main-text);
+    font-weight: 300;
     font-size: 24px;
     padding: 5px 0;
     display: inline-block;
@@ -36,7 +35,5 @@ const props = defineProps(['tabs'])
     position: absolute;
     top: 0;
 }
-.tab:hover .line {
-    border-bottom: 1px solid gray;
-}
+
 </style>
