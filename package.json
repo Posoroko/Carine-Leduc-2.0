@@ -8,10 +8,13 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@nuxtjs/apollo": "^5.0.0-alpha.5",
     "@nuxtjs/google-fonts": "^2.0.0",
     "nuxt": "3.0.0"
   },
   "dependencies": {
-    "nuxt-directus": "^3.2.2"
+    "@pinia/nuxt": "^0.4.6",
+    "nuxt-directus": "^3.2.2",
+    "pinia": "^2.0.28"
   }
 }

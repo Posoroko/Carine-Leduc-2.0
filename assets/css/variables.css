@@ -6,11 +6,10 @@
     --panel-border: #4c4431;
     --transparent-card: rgba(45,36,31,.698);
 
-    --blog-bg-color: white;
-
-    /* bottom one */
+    /* bottom svg decoration */
     --svg-decoration: #4e3a2e;
-    /* top one */
+
+    /* top svg decoration, mandala */
     --svg-decoration-2: #48392f;
 
     --main-bg: #1c1a19;
@@ -23,13 +22,10 @@
     --main-contrast-hover : #bfaa74;
     
 
-
-
     /* layout parameters */
 
     --main-width: min(1200px, 90vw);
     --mid-width: min(1000px, 90vw);
-
 
     /* element styles */
 

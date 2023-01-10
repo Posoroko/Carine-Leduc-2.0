@@ -42,7 +42,7 @@ export const usePrestaStore = defineStore('prestations', {
                 .then(data => {
                     // console.log(data.data)
                     this.prestations = data.data
-                    console.log('here we go again', this.prestations)
+                    // console.log('here we go again', this.prestations)
                     this.initializeAllTypesOfPrestations()
                 })
 

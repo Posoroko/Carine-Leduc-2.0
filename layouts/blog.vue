@@ -1,13 +1,13 @@
 <template>
     <div class="blogBody">
-        <div class="blogWidth">
+        <div class="blogPage">
             <TopBar :isBlog="true" />
 
             <blogTopDate />
-        </div>
-        
-        <slot />
 
+            <slot />
+
+        </div>
     </div>
 </template>
 
@@ -26,9 +26,12 @@ initialQueryTrigger(useRoute().fullPath)
     width: 100%;
     min-height: 100vh;
     background-color: white;
+    padding-top: 10px;
 }
-.blogWidth {
-    width: min(1200px, 98%);
+.blogPage {
+    width: var(--blog-page-width);
+    padding: 5px;
     margin: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.219);
 }
 </style>

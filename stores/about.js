@@ -51,7 +51,7 @@ export const useAboutStore = defineStore('about', {
                     
                     this[listOfCollections[i]] = data.data
 
-                    console.log(listOfCollections[i], 'in about store: :', this[listOfCollections[i]])
+                    // console.log(listOfCollections[i], 'in about store: :', this[listOfCollections[i]])
                 })
             }
 

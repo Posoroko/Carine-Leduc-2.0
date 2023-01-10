@@ -4,16 +4,26 @@ export default defineNuxtConfig({
       '@/assets/css/variables.css',
       '@/assets/css/reset.css',
       '@/assets/css/fonts.css',
-      '@/assets/css/main.css'
+      '@/assets/css/main.css',
+      '@/assets/css/blog.css'
     ],
 
     modules: [
       "nuxt-directus",
-      "@pinia/nuxt"
+      "@pinia/nuxt",
+      '@nuxtjs/apollo'
     ],
 
     directus: {
       url: "https://ku3vu7zb.directus.app"
+    },
+
+    apollo: {
+        clients: {
+            default: {
+              httpEndpoint: 'https://ku3vu7zb.directus.app/graphql'
+            }
+          }
     }
-  
+
 })

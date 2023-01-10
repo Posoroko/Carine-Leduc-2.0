@@ -1,0 +1,32 @@
+:root {
+    /* fonts */
+
+    --blog-text-font: 'Old Standard TT', serif;
+
+    /* text color */
+    --blog-text-color: rgb(32, 32, 32);
+    --blog-color: rgb(32, 32, 32);
+
+    /* colors */
+
+    --blog-bg-color: white;
+
+    /* misc */
+    
+    --blog-border-style: solid;
+    --blog-border-thick: 4px;
+    --blog-border-thin: 2px;
+
+    --blog-page-width: min(1200px, 98%);
+
+}
+
+.blogFont {
+    font-family: var(--blog-text-font);
+    color: var(--blog-text-color);
+}
+
+/* only for paragraph text */
+.blogText {
+    font-size: 18px;
+}
