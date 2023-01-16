@@ -1,63 +1,134 @@
 <template>
-    <blogHeader />
+    <blogHeader :title="blogConfig.title" :subtitle="blogConfig.subtitle"/>
     <main>
         <section class="latestBigBox">
             <artice class="latestBox">
                 <figure class="frame">
-                    <img :src="latestImage" :alt="blogStore.LatestBlog.alt">
-                    
+                    <img :src="appConfig.directus.assets + blogs[0].mainImage.image" :alt="blogs[0].mainImage.alt">
                 </figure>
-                <h1 class="title blogFont">{{ blogStore.LatestBlog.title }}</h1>
 
-                <div class="latestContent blogFont blogText" ref="pragraph" id="paragraph">
+                <h1 class="title blogFont">{{ blogs[0].title }}</h1>
 
-                </div>
+                <div class="latestContent blogFont blogText"  v-html="blogs[0].content.slice(0, 200) + '...'" id="paragraph"></div>
+
+                <p class="blogMoreBox blogFont blogText">
+
+                    <!-- le lien doit pointer vers la page bio du blog -->
+                    <NuxtLink :to="`/blog/${blogs[0].id}`">
+                        lire la suite...
+                    </NuxtLink>
+                </p>
                 
             </artice>
 
             <ul class="recentBox">
                 <h2> <span class="dot"></span> ARTICLES RECENTS</h2>
-                <li class="recent" v-for="(item, index) in blogStore.RecentBlogs" :key="item.id">
+                <NuxtLink :to="`/blog/${item.id}`" class="recent pointer blogFont" v-for="(item, index) in blogs.slice(1,5)" :key="item.id">
                     <p>{{ index + 1 }}.</p>
 
-                    <div class="midlleBox r">
-                        <h1>{{ item.title }}</h1>
+                    <div class="midlleBox">
                         <p>{{ item.date_published }}</p>
+                        
+                        <h1>{{ item.title }}</h1>
                     </div>
 
-                    <figure>
-                        <img :src="configStore.directusAssets + item.img" alt="">
+                    <figure class="">
+                        <img :src="appConfig.directus.assets + item.mainImage.image" :alt="item.mainImage.image">
                     </figure>
-                </li>
+                </NuxtLink>
             </ul>
+        </section>
+
+        <section class="authorSection">
+            <div class="carineBox">
+                <h1 class="">
+                    A PROPOS DE L'AUTRICE
+                </h1>
+
+                <div class="box">
+                    <div class="frame">
+                        <img :src="appConfig.directus.assets + blogConfig.authorPortrait" alt="">
+                    </div>
+
+                    <div class="bioBox">
+                        <h2>Carine Leduc, énergéticienne</h2>
+                        <p class="blogFont blogText">
+                            {{ blogConfig.authorBio }}
+                        </p>
+                        <p class="blogMoreBox blogFont blogText">
+
+                            <!-- le lien doit pointer vers la page bio du blog -->
+                            <!-- <NuxtLink to="/a-propos">
+                                lire la suite...
+                            </NuxtLink> -->
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <NuxtLink class="siteBox pointer blogFont" to="/">
+                <p class="invite">
+                    {{ blogConfig.siteInvite }}
+                </p>
+                <div class="frame">
+                    <img src="images/deco/lune_fleurie.png" alt="">
+                </div>
+
+                <p class="siteName">carineleduc.com</p>
+            </NuxtLink>
+
         </section>
         
     </main>
 </template>
 
 <script setup>
-import { useBlogStore } from '@/stores/blog';
-import { useConfigStore } from '@/stores/config';
-
-const paragraph = ref(null);
-const blogStore = useBlogStore();
-const configStore = useConfigStore();
 
 definePageMeta({
   layout: "blog",
 });
 
-const latestImage = computed(() => {
-    if(blogStore.LatestBlog.img) {
-        const para = document.getElementById('paragraph')
-        console.log(blogStore.LatestBlog.content)
-        para.innerHTML = blogStore.LatestBlog.content
-        let string = configStore.directusAssets + blogStore.LatestBlog.img
-        return string
-    }
-    
-});
+const appConfig = useAppConfig()
 
+const blogsUrl = appConfig.directus.items + "Blogs"
+const blogFetchOptions = {
+    server: true,
+    params: {
+        limit: 5,
+        sort: '-date_published',
+        fields: 'id, title, content, date_published, mainImage.image, mainImage.alt'
+    }
+}
+
+const { data: blogs } = await useAsyncData(
+    'homePageBlogs', 
+    async () => {
+        const items = await $fetch(blogsUrl, blogFetchOptions)
+        return items.data
+    }
+    ,
+    { server: true }
+)
+
+const blogConfigUrl = appConfig.directus.items + "BlogConfig"
+const blogConfigFetchOptions = {
+    server: true,
+    // params: {
+    //     fields: 'title, content, date_published, mainImage.image, mainImage.alt'
+    // }
+}
+
+const { data: blogConfig } = await useAsyncData(
+    'blogConfig', 
+    async () => {
+        const items = await $fetch(blogConfigUrl, blogConfigFetchOptions)
+        return items.data
+    }
+    ,
+    { server: true }
+)
 
 
 </script>
@@ -92,10 +163,13 @@ const latestImage = computed(() => {
 
 /* latest Blog */
 
+.latestBox {
+    padding: 10px;
+}
 .latestBox .frame {
     width: 100%;
     aspect-ratio: 16/9;
-    padding: 10px;
+    
 }
 
 .latestBox .frame img {
@@ -107,8 +181,14 @@ const latestImage = computed(() => {
 .latestBox h1 {
     font-size: 30px;
     font-weight: 600;
-
+    margin-top: 10px;
 }
+
+.latestBox .latestContent {
+    margin-top: 10px;
+}
+
+/* recent blogs */
 .recentBox h2 {
     font-size: 30px;
     font-weight: 600;
@@ -135,6 +215,14 @@ const latestImage = computed(() => {
     margin: 0 20px;
     border-bottom: 1px solid var(--blog-color);
 }
+.recent:last-child {
+    border-bottom: none;
+}
+
+.recent:hover {
+    background-color: var(--blog-bg-color-hover);
+    transition: 300ms;
+}
 
 .recent p {
     width: 10%;
@@ -151,11 +239,15 @@ const latestImage = computed(() => {
     width: 100%;
     font-size: 24px;
     font-weight: 600;
-    width: 70%;
+}
+.recent .midlleBox p {
+    width: 100%;
+    font-size: 14px;
+    font-weight: 600;
 }
 .recent figure {
-    width: 100px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
 }
 
 .recent figure img {

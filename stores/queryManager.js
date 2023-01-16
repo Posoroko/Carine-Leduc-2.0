@@ -3,62 +3,27 @@ import { useAboutStore } from "./about"
 import { useAgendaStore } from "./agenda"
 import { useBlogStore } from "./blog"
 
+
 const prestaStore = usePrestaStore()
 const aboutStore = useAboutStore()
 const agendaStore = useAgendaStore()
 const blogStore = useBlogStore()
 
-//not sure if needed, but kept in just in case
-const newVisit = true
-// <=
-
-// ths function is called by layouts/default.vue. It will trigger when the user first visits the website
-export const initialQueryTrigger = async (urlPath) => {
-
-    if(!newVisit) {
-        defaultTrigger()
-        newVisit = false
-        return
-    }
-
-    console.log(urlPath)
-    switch(urlPath) {
-        case '/':
-            prestaStore.initializeData()
-            break
-        case '/prestations':
-            prestaStore.initializeData()
-            break
-        case '/a-propos':
-            await aboutStore.initializeData()
-            break
-        case '/agenda':
-            await agendaStore.initializeData()
-            break
-        case '/blog':
-            await blogStore.initializeData()
-            break
-        default:
-            defaultQueryTrigger()
-    }
-    defaultQueryTrigger()
-}
 
 //this function triggers all queries in the background
 
-export const defaultQueryTrigger = () => {
+export const backgroundDataFetching = async (urlPath) => {
 
-    
-
-    //could be a good idea to wait between each call
-
-    if(!prestaStore.dataDownloaded) {
-        prestaStore.initializeData()
+    if(prestaStore.prestations.length === 0) {
+        await prestaStore.initializeData()
     }
-    if(!aboutStore.dataDownloaded) {
-        aboutStore.initializeData()
-    }
-    if(!agendaStore.dataDownloaded) {
-        agendaStore.initializeData()
-    }
+    // if(urlPath !== '/a-propos') {
+    //     await aboutStore.initializeData()
+    // }
+    // if(urlPath !== '/agenda') {
+    //     await agendaStore.initializeData()
+    // }
+    // if(urlPath !== '/blog') {
+    //     await blogStore.initializeData()
+    // }
 }

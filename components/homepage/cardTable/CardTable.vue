@@ -8,7 +8,7 @@
             <TitleBar title="Prestations" link="/prestations"/>
         </div>
 
-        <div class="cardBox" v-for="presta in prestaStore.prestations" :key="presta.id">
+        <div class="cardBox" v-for="presta in prestations.data" :key="presta.id">
             <NuxtLink class="underCard" :to="presta.path">
                 <p class="prestaDescription">{{presta.description}}</p>
 
@@ -27,9 +27,21 @@ import ServiceCard from '@/components/homepage/cardTable/ServiceCard'
 import TitleBar from '@/components/homepage/TitleBar.vue'
 
 import { usePrestaStore } from '@/stores/prestations'
-
 const prestaStore = usePrestaStore()
 
+const appConfig = useAppConfig()
+
+const url = appConfig.directus.items + 'Prestations'
+
+const { data: prestations } = await useAsyncData(
+    'prestations', 
+    async () => {
+        const items = await $fetch(url)
+        return items
+    }
+    ,
+    { server: true }
+)
 
 </script>
 

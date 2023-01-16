@@ -5,27 +5,11 @@ export const useAgendaStore = defineStore('agenda', {
     state: () => ({
         dataDownloaded: false,
         allDates: [],
+        lastBlogFetched: -1 // so the first feth will start at id == 0
     }),
-    getters: {
-        getAllDates() {
-            return this.allDates
-        }
-    },
     actions: {
+        async getDates(numberOfItems ) {
 
-        async initializeData() {
-
-            await fetch("https://ku3vu7zb.directus.app/items/Agenda")
-            .then(response => response.json())
-            .then(data => {
-                this.allDates = data.data
-
-                this.allDates.forEach(date => {
-                    date.date = dateToDayMontformat(date.date) //composable/dataManipulation
-                })
-            })
-
-            this.dataDownloaded = true
         }
     }
 })

@@ -8,6 +8,8 @@ export default defineNuxtConfig({
       '@/assets/css/blog.css'
     ],
 
+    ssr: true,
+
     modules: [
       "nuxt-directus",
       "@pinia/nuxt",

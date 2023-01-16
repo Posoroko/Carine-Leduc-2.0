@@ -6,10 +6,12 @@
     /* text color */
     --blog-text-color: rgb(32, 32, 32);
     --blog-color: rgb(32, 32, 32);
+    --blog-color-hover: rgba(32, 32, 32, 0.938);
 
     /* colors */
 
     --blog-bg-color: white;
+    --blog-bg-color-hover: rgba(226, 217, 210, 0.514);
 
     /* misc */
     

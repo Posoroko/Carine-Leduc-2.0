@@ -21,6 +21,12 @@ const months = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet'
 export const createDateString = (date) => {
     
     const string = `le ${days[date.getDay()]} ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`
-        
+    return string
+}
+
+export const formatDateDDMM = (date) => {
+    const day = date.getDate()
+    const month = date.getMonth()
+    const string = `${day < 10 ? '0' + day : day}-${month < 10 ? '0' + month : month}`
     return string
 }

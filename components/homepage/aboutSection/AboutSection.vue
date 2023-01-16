@@ -1,28 +1,28 @@
 <template>
-    <section class="" v-if="content">
+    <section class="r">
         
         <div class="board">
             <div class="titleBox">
-                <TitleBar :title="content.title" :link="linkToAboutPage"/>
-                <h2 class="subtitle">{{ content.subtitle }}</h2>
+                <TitleBar :title="content.data.title" :link="linkToAboutPage"/>
+                <h2 class="subtitle">{{ content.data.subtitle }}</h2>
             </div>
 
-            <div class="imageBoard">
+            <div class="imageBoard r">
                 <div class="leftBox frame imageBox">
-                    <img class="aboutImg" :src="`https://ku3vu7zb.directus.app/assets/${content.image2}.jpg`" alt="">
+                    <img class="aboutImg" :src="`https://ku3vu7zb.directus.app/assets/${content.data.image2}.jpg`" alt="">
 
-                    <NuxtLink class="imageTitle" to="/a-propos"> {{ content.image2Title }} </NuxtLink>
+                    <NuxtLink class="imageTitle" to="/a-propos"> {{ content.data.image2Title }} </NuxtLink>
                 </div>
 
                 <div class="rightBox imageBox">
                     <div class="rightTopBox frame rightInnerBox">
-                        <img class="aboutImg" :src="`https://ku3vu7zb.directus.app/assets/${content.image1}.jpg`" alt="">
-                        <NuxtLink class="imageTitle" to="/a-propos"> {{ content.image1Title }} </NuxtLink>
+                        <img class="aboutImg" :src="`https://ku3vu7zb.directus.app/assets/${content.data.image1}.jpg`" alt="">
+                        <NuxtLink class="imageTitle" to="/a-propos"> {{ content.data.image1Title }} </NuxtLink>
                     </div>
 
                     <div class="rightBottomBox frame rightInnerBox">
-                        <img class="aboutImg" :src="`https://ku3vu7zb.directus.app/assets/${content.image3}.jpg`" alt="">
-                        <NuxtLink class="imageTitle" to="/a-propos"> {{ content.image3Title }} </NuxtLink>
+                        <img class="aboutImg" :src="`https://ku3vu7zb.directus.app/assets/${content.data.image3}.jpg`" alt="">
+                        <NuxtLink class="imageTitle" to="/a-propos"> {{ content.data.image3Title }} </NuxtLink>
                     </div>
                 </div>
             </div>
@@ -31,22 +31,22 @@
 
                 <div class="linkCard">
                     <NuxtLink class="link" to="/a-propos">
-                        <h4 class="aboutCardTitle"> {{ content.image1Title }} </h4>
-                        <p class="cardText"> {{ content.image1Text }} </p>
+                        <h4 class="aboutCardTitle"> {{ content.data.image1Title }} </h4>
+                        <p class="cardText"> {{ content.data.image1Text }} </p>
                     </NuxtLink>
                 </div>
                 
                 <div class="linkCard">
                     <NuxtLink class="link" to="/a-propos">
-                        <h4 class="aboutCardTitle"> {{ content.image2Title }} </h4>
-                        <p class="cardText"> {{ content.image2Text }} </p>
+                        <h4 class="aboutCardTitle"> {{ content.data.image2Title }} </h4>
+                        <p class="cardText"> {{ content.data.image2Text }} </p>
                     </NuxtLink> 
                 </div>
                 
                 <div class="linkCard">
                     <NuxtLink class="link" to="/a-propos">
-                        <h4 class="aboutCardTitle"> {{ content.image3Title }} </h4>
-                        <p class="cardText"> {{ content.image3Text }} </p>
+                        <h4 class="aboutCardTitle"> {{ content.data.image3Title }} </h4>
+                        <p class="cardText"> {{ content.data.image3Text }} </p>
                     </NuxtLink>
                 </div>
             
@@ -61,17 +61,17 @@ import TitleBar from '@/components/homepage/TitleBar'
 
 const linkToAboutPage = ref('/a-propos')
 
-const { getItems } = useDirectusItems();
+const appConfig = useAppConfig()
 
-let content = ref(null);
+const url = appConfig.directus.items + 'HomepageAbout'
 
-getItems({ collection: "HomepageAbout" })
-    .then(res => {
-        content.value = res
-    })
-    .catch(err => {
-        console.log(err.message)
-    })
+const fetchOptions = {
+    key: 'aboutSection',
+    server: true
+}
+
+const { data: content } = await useFetch(url, fetchOptions)
+
 
 
 </script>

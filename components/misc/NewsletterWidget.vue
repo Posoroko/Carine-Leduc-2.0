@@ -22,6 +22,7 @@ const message = ref(null)
 
 const email = ref(null)
 
+
 const submitForm = () => {
     error.value = null;
     isPending.value = true;
@@ -57,9 +58,6 @@ const submitForm = () => {
     }
     isPending.value = false
 }
-// eric@posoroko.com
-
-
 
 </script>
 
@@ -105,3 +103,4 @@ button {
     text-align: center;
 }
 </style>
+

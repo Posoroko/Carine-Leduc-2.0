@@ -1,7 +1,7 @@
 <template>
     <header class="blogHeader">
-        <h1>ÉNERGIE DE VIE</h1>
-        <h2>ARTICLES DE SAISON ET LECTURE BIENÊTRE</h2>
+        <h1>{{  title }}</h1>
+        <h2>{{ subtitle }}</h2>
         <div class="catBox">
             <p>santé</p>
             <p>saison</p>
@@ -12,7 +12,10 @@
 </template>
 
 <script setup>
-
+const props = defineProps({
+    title: String,
+    subtitle: String,
+})
 
 
 </script>
