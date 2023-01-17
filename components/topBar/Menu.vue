@@ -1,15 +1,15 @@
 <template>
     <div class="box">
-        <button ref="menuIcon" class="icon menuIcon pointer" @click.prevent="showModal">menu</button>
+        <div ref="menuIcon" class="icon menuIcon pointer">menu</div>
 
-        <div class="modal" v-show="modal">
+        <div class="modal" :class="{showModal : modalOn}">
             <p class="menu">
                 <span class="tab work" v-for='tab in tabs' :key="tab.name">
-                    <NuxtLink :to="tab.link" @click="showModal"> {{ tab.name }} </NuxtLink>
+                    <NuxtLink :to="tab.link"> {{ tab.name }} </NuxtLink>
                 </span>
             </p>
 
-            <span class="icon closeIcon pointer" @click="showModal">close</span>
+            <span class="icon closeIcon pointer">close</span>
         </div>
     </div>
 </template>
@@ -19,23 +19,8 @@
 const props = defineProps(['tabs'])
 
 // modal
-const modal = ref(false)
-const menuIcon = ref(null)
+const showModal = ref(false)
 
-const showModal = () => {
-
-    if(!modal.value) {
-        modal.value = true
-        menuIcon.value.style.opacity = '0'
-        menuIcon.value.disabled = true
-        menuIcon.value.style.cursor = "auto"
-        return
-    }
-    modal.value = false
-    menuIcon.value.style.opacity = '1'
-    menuIcon.value.disabled = false
-    menuIcon.value.style.cursor = "pointer"
-}
 </script>
 
 <style scoped>
@@ -45,6 +30,7 @@ const showModal = () => {
     position: relative;
 }
 .menuIcon {
+    color: var(--main-text-color);
     font-size: 40px;
     font-weight: 100;
     background: none;
@@ -54,6 +40,8 @@ const showModal = () => {
 
 .modal {
     width: min(225px, 80%);
+    color: var(--main-text-color);
+    background-color: var(--background);
     padding: 30px;
     border: none;
     border-radius: 10px;
@@ -61,7 +49,13 @@ const showModal = () => {
     top: 30px;
     right: 30px;
     animation: 300ms forwards fadeIn ease;
+    z-index: 1000;
 }
+
+.modalOn {
+    opacity: 1
+}
+
 @keyframes fadeIn {
     from{
         transform: translate(50px, -20px);

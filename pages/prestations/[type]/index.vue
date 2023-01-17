@@ -11,7 +11,7 @@
         <div class="background"></div>
 
         <div class="prestaPanelBox" >
-            <PrestaPanel  :presta="presta.data[0]"/>
+            <PrestaPanel  :presta="presta.data[0]" :listsOn="true"/>
         </div>        
     </main>
 </template>

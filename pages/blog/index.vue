@@ -256,4 +256,113 @@ const { data: blogConfig } = await useAsyncData(
     object-fit: cover;
     border-radius: 2px;
 }
+
+.authorSection {
+    border-top: var(--blog-border-thick) solid var(--blog-color);
+    margin-top: 20px;
+    display: flex;
+}
+
+@media (max-width: 749px) {
+    .carineBox {
+        width: 100%;
+        
+}
+    .siteBox {
+        width: 100%;
+    }
+}
+@media (min-width: 750px) {
+    .carineBox {
+        width: 60%;
+        border-right: 2px solid var(--blog-color);
+}
+    .siteBox {
+        width: 40%;
+    }
+}
+
+.authorSection .carineBox h1 {
+    font-size: 30px;
+    margin: 10px
+}
+.authorSection .carineBox .box {
+    width: 100%;
+    display: flex;
+}
+.authorSection .carineBox .box .frame {
+    width: 30%;
+    aspect-ratio: 3/4;
+}
+.authorSection .carineBox .frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.authorSection .carineBox .box .bioBox {
+    width: 70%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.authorSection .carineBox .box .bioBox p {
+    margin-top: 10px;
+}
+
+.blogMoreBox {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+.blogMoreBox a {
+    /* color: white; */
+    /* background-color: var(--blog-color); */
+    padding: 5px 15px 2px 15px;
+    border-radius: 20px;
+    vertical-align: middle;
+}
+
+.siteBox {
+    
+    font-family: var(--main-text-font);
+    /* background-color: var(--blog-color); */
+    /* background: radial-gradient(circle, rgba(42,62,64,1) 0%, rgba(28,26,25,1) 100%); */
+    background: radial-gradient(circle, rgba(36,46,47,1) 0%, rgba(28,26,25,1) 100%);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.siteBox:hover {
+    background-color: var(--blog-color-hover);
+}
+
+.siteBox .invite{
+    color: white;
+    width: 60%;
+    text-align: center;
+}
+
+
+.siteBox .frame {
+    width: 50%;
+    aspect-ratio: 1/1;
+}
+
+.siteBox .frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.siteBox .siteName {
+    color: white;
+    font-size: 24px;
+}
 </style>

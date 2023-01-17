@@ -39,7 +39,7 @@ const { data: dates } = await useAsyncData(
         </div>
         
         <div class="mainWidthFrame">
-            <figure class="dateCard reactiveCard_userActions" v-for="(date, index) in dates.data.slice(0, 5)" :key="index" >
+            <figure class="dateCard reactiveCardBasicStyles_userActions reactiveCard_userActions" v-for="(date, index) in dates.data.slice(0, 5)" :key="index" >
                 <div class="cardContent">
                     <!-- Format the date to extract day and month -->
                     <p class="date">{{ date.date.slice(8, 10) + date.date.slice(4, 7) }}</p> 
@@ -58,7 +58,7 @@ const { data: dates } = await useAsyncData(
         </div>
 
         <div class="agendaLinkBox">
-            <NuxtLink class="link reactiveCard_userActions" to="/agenda"> voir toutes les dates</NuxtLink>
+            <NuxtLink class="link reactiveCardBasicStyles_userActions reactiveCard_userActions" to="/agenda"> voir toutes les dates</NuxtLink>
         </div>
     </section>
 </template>
@@ -84,15 +84,36 @@ const { data: dates } = await useAsyncData(
     position: relative;
     display: flex;
     justify-content: center;
+    gap: 20px;
+}
+@media screen and (max-width: 750px) {
+    .mainWidthFrame {
+        flex-direction: column;
+    }
+    .dateCard {
+        width: 100%;
+
+    }
+    
+}
+
+@media screen and (min-width: 751px) {
+    .mainWidthFrame {
+        flex-direction: row;
+    }
+    .dateCard {
+        width: 200px;
+
+    }
+    
 }
 
 .dateCard {
     font-family: 'Work Sans';
-    width: 200px;
+
     padding: 20px;
     border-bottom-left-radius: 60px;
     box-shadow: var(--card-shadow);
-    margin: 0 20px 0 0;
     z-index: 1;
     display: inline-block;
 }
@@ -150,7 +171,7 @@ const { data: dates } = await useAsyncData(
 }
 .agendaLinkBox .link {
     font-family: 'Work Sans';
-    font-size: 30px;
+    font-size: clamp(18px, 2.5vw, 30px);
     font-weight: 300;
     
     text-decoration: none;
@@ -158,6 +179,7 @@ const { data: dates } = await useAsyncData(
     padding: 10px 25px;
 
     border-radius: 50px;
+    margin: 20px;
 }
 
 </style>

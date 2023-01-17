@@ -4,13 +4,14 @@
         
         <section class="introHeader">
             <p class="garamond">
-                <span class="marks1">"</span>Ma mission est d’éclairer ton chemin afin de mettre en lumière tes propres richesses en source
+                <!-- <span class="marks1">"</span> -->
+                Ma mission est d’éclairer ton chemin afin de mettre en lumière tes propres richesses en source
                 d’évolution personnelle afin d’atteindre la sérénité et la paix. Nous entrons aujourd’hui dans
                 une pleine conscience du lien entre le corps et la conscience de soi qui concerne l’ensemble
                 des êtres Humains.
                 Je t’accompagne à te choisir, à devenir responsable de ta vie émotionnelle et psychique, en te
                 reconnectant afin d’explorer les mille et un trésors qui dorment en toi.
-                <span class="marks2">"</span>
+                <!-- <span class="marks2">"</span> -->
             </p>
         </section>
 
@@ -55,14 +56,15 @@ import NewsletterWidget from '@/components/misc/NewsletterWidget'
     place-items: center;
 }
 .introHeader p {
-    font-size: 25px;
+    width: min(800px, var(--main-width));
+    font-size: clamp(20px , 2vw, 30px);
     font-family: var(--main-text-font);
     font-weight: 200;
-    width: min(800px, var(--main-width));
-    color: var(--text);
-    margin: 100px 0;
     text-align: center;
     line-height: 1.5;
+    color: var(--text);
+    padding: 15px;
+    margin: 100px 0;
     position: relative;
 }
 .marks1{
@@ -70,6 +72,7 @@ import NewsletterWidget from '@/components/misc/NewsletterWidget'
     font-size: 60px;
     font-weight: 200;
     color: var(--main-contrast);
+    margin: 15px;
     position: absolute;
     top: 0;
     left: 0;

@@ -1,8 +1,8 @@
 <template>
-    <header>
+    <header class="prestationsHeader">
         <div class="headerTop">
             <h1>{{ eric }}</h1>
-            <img src="@/assets/images/deco/chemin-foret.jpg" alt="">
+            <img src="images/deco/chemin-foret.jpg" alt="">
         </div>
         
     </header>
@@ -10,8 +10,8 @@
     <main class="prestaBoard">
         <div class="background"></div>
 
-        <div class="prestaPanelBox" v-for="presta in prestations.data" :key="presta.id">
-            <PrestaPanel  :presta="presta"/>
+        <div class="prestaPanelBox" v-for="(presta, index) in prestations.data" :key="presta.id">
+            <PrestaPanel  :presta="presta" :listsOn="false" />
         </div>        
     </main>
 </template>
@@ -39,16 +39,13 @@ const { data: prestations } = await useAsyncData(
 
 
 <style scoped>
-header {
-    width: 100%;
-    
-}
-.headerTop {
+
+.prestationsHeader .headerTop {
     width: 100%;
     height: 30vh;
     position: relative;
 }
-.headerTop h1 {
+.prestationsHeader .headerTop h1 {
     font-size: 60px;
     font-family: 'IM Fell English SC', serif;
     color: var(--main-contrast);
@@ -58,33 +55,19 @@ header {
     transform: translate(-50%, -50%);
     
 }
-.headerTop img {
+.prestationsHeader .headerTop img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
     opacity: 0.2;
 }
-.headerIntro {
-    padding: 15vh 25vw;
-}
-.introText {
-    font-size: 18px;
-    font-family: var(--main-text);
-    font-weight: 300;
-    letter-spacing: 0px;
-    white-space: pre-wrap;
-    color: var(--text);
-    padding: 20px;
-    border-top: 1px solid var(--main-contrast);
-    border-bottom: 1px solid var(--main-contrast);
-}
 
 .prestaBoard {
     width: var(--mid-width);
     border-radius: 20px;
     padding: clamp(5px, 2vw, 30px);
-    margin: auto;
+    margin: 100px auto ;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -103,5 +86,6 @@ header {
     opacity: 0.08;
     z-index: -1;
 }
+
 
 </style>

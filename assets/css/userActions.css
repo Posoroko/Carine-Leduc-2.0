@@ -1,10 +1,13 @@
 
 /* All card like element that react when hovering. */
 
-.reactiveCard_userActions {
+.reactiveCardBasicStyles_userActions {
     color: var(--main-text-color);
     background-color: var(--main-bg);
     border: 1px solid var(--border);
+}
+
+.reactiveCard_userActions {
     cursor: pointer;
 }
 .reactiveCard_userActions:hover {

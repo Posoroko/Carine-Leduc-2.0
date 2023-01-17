@@ -1,18 +1,20 @@
 <template>
-    <section class="prestaPanel panel">
+    <section class="prestaPanel reactiveCardBasicStyles_userActions panel" :class="{reactiveCard_userActions: listsOn === false}">
         <div class="prestaSectionHeader">
-            <figure class="prestaCardFrame prestaCardFrameLeft">
+            <figure class="prestaCardFrame">
                 <img src="images/deco/carte.jpg" alt="">
             </figure>
 
-            <div class="prestaTitleBox prestaTitleBoxLeft">
-                <h1>{{ presta.displayName }}</h1>
+            <div class="prestaTitleBox">
+                <h1 class="prestaTitle">{{ presta.displayName }}</h1>
 
-                <h3>{{  presta.accroche }}</h3>
-            </div>                
+                <h3 class="prestaTitle">{{  presta.accroche }}</h3>
+            </div>
+            
+            
         </div>
 
-        <ul class="prestaList">
+        <ul class="prestaList" v-if="listsOn === true">
             <li class="prestaItem" v-for="(item, index) in listOfItems.data" :key="item.id">
                 <div class="line">0{{ index + 1 }}</div>
 
@@ -28,6 +30,15 @@
             </li>
         </ul>
 
+        
+        <p class="moreText">
+            découvrir les {{ presta.displayName }}...
+        </p>
+
+        <NuxtLink class="moreLink" :to="presta.path" v-if="listsOn === false">
+
+        </NuxtLink>
+
     </section>
 </template>
 
@@ -36,6 +47,10 @@
 const props = defineProps({
     presta: {
         type: Object,
+        required: true
+    },
+    listsOn: {
+        type: Boolean,
         required: true
     }
 })
@@ -60,29 +75,78 @@ const { data: listOfItems } = await useAsyncData(
 <style scoped>
 .prestaPanel {
     width: 100%;
-    background-color: var(--panel);
     padding: clamp(5px, 2vw, 30px);
-    border: 1px solid var(--border);
+    border-radius: 10px;
     box-shadow: var(--panel-shadow);
     display: block;
     position: relative;
     z-index: 10;
 }
 
-.prestaSectionHeader {
-    padding: 30px 20px;
-    position: relative;
+.moreText {
+    font-size: 24px;
+    font-weight: 200;
+    font-family: var(--main-text-font);
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: 300ms ease;
+}
+
+.moreLink {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+}
+
+.prestaPanel:hover .moreText {
+    opacity: 1;
+    transition: 300ms ease;
+}
+
+.prestaPanelBox:nth-child(2n+3) .prestaPanel .prestaSectionHeader{
+    display: flex;
+    flex-direction: row-reverse;
 }
 
 .prestaSectionHeader .prestaTitleBox {
     padding: 30px 20px;
     border-radius: 10px;
     background-color: var(--transparent-card);
-    position: absolute;
+    position: absolute; 
+}
+/* left side title box */
+.prestaPanelBox:nth-child(2n+2) .prestaPanel .prestaSectionHeader .prestaTitleBox{
     top: 50%;
     left: 5%;
     transform: translateY(-50%);
+    align-items: flex-start;
 }
+
+/* right side title box */
+.prestaPanelBox:nth-child(2n+3) .prestaPanel .prestaSectionHeader .prestaTitleBox{
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    /* align-items: flex-end; */
+}
+/* right side titles */
+.prestaPanelBox:nth-child(2n+3) .prestaPanel .prestaSectionHeader .prestaTitleBox .prestaTitle{
+    text-align: end;
+}
+
+.prestaSectionHeader{
+    padding: 30px 20px;
+    position: relative;
+    /* display: flex;
+    flex-direction: column; */
+}
+
 .prestaSectionHeader .prestaTitleBox h1 {
     font-size: var(--item-title-size);
     font-family: var(--english);
@@ -94,6 +158,7 @@ const { data: listOfItems } = await useAsyncData(
     font-weight: 300;
     color: var(--text);
 }
+
 .prestaList{
     padding: clamp(5px, 2vw, 30px);
 }

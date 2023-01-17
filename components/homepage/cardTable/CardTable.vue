@@ -67,7 +67,7 @@ const { data: prestations } = await useAsyncData(
     z-index: 5;
 }
 .cardBox {
-    width: min(200px, 30%);
+    width: min(200px, 60%);
     aspect-ratio: 5/9;
 
     border-radius: 5px;

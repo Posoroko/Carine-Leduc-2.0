@@ -1,5 +1,5 @@
 <template>
-    <section class="r">
+    <section class="">
         
         <div class="board">
             <div class="titleBox">
@@ -7,7 +7,7 @@
                 <h2 class="subtitle">{{ content.data.subtitle }}</h2>
             </div>
 
-            <div class="imageBoard r">
+            <div class="imageBoard">
                 <div class="leftBox frame imageBox">
                     <img class="aboutImg" :src="`https://ku3vu7zb.directus.app/assets/${content.data.image2}.jpg`" alt="">
 
@@ -29,21 +29,21 @@
 
             <div class="linkBoard">
 
-                <div class="linkCard reactiveCard_userActions">
+                <div class="linkCard reactiveCardBasicStyles_userActions reactiveCard_userActions">
                     <NuxtLink class="link" to="/a-propos">
                         <h4 class="aboutCardTitle"> {{ content.data.image1Title }} </h4>
                         <p class="cardText"> {{ content.data.image1Text }} </p>
                     </NuxtLink>
                 </div>
                 
-                <div class="linkCard reactiveCard_userActions">
+                <div class="linkCard reactiveCardBasicStyles_userActions reactiveCard_userActions">
                     <NuxtLink class="link" to="/a-propos">
                         <h4 class="aboutCardTitle"> {{ content.data.image2Title }} </h4>
                         <p class="cardText"> {{ content.data.image2Text }} </p>
                     </NuxtLink> 
                 </div>
                 
-                <div class="linkCard reactiveCard_userActions">
+                <div class="linkCard reactiveCardBasicStyles_userActions reactiveCard_userActions">
                     <NuxtLink class="link" to="/a-propos">
                         <h4 class="aboutCardTitle"> {{ content.data.image3Title }} </h4>
                         <p class="cardText"> {{ content.data.image3Text }} </p>
@@ -198,11 +198,11 @@ section {
 
 @media (min-width: 1000px) and (max-width: 1499px) {
     .imageBox {
-        width: 40vw;
+        width: 100%;
         aspect-ratio: 4/5.5;
     }
     .linkBoard {
-        width: calc(80vw + 20px);
+        width: 100%;
     }
 
     .linkCard {
@@ -214,14 +214,6 @@ section {
     .imageBox {
         width: 40vh;
         aspect-ratio: 4/5.5;
-    }
-
-    .linkBoard {
-        width: calc(80vh + 20px);
-    }
-
-    .linkCard {
-        width: 30%;
     }
 }
 

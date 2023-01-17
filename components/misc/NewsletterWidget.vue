@@ -8,7 +8,7 @@
 
         <p class="message" v-if="message">{{ message }}</p>
 
-        <button type="submit" @click.prevent="submitForm">S'inscrire</button>
+        <button type="submit" class=" reactiveCardBasicStyles_userActions reactiveCard_userActions" @click.prevent="submitForm">S'inscrire</button>
     </form>
 </template>
 
@@ -64,14 +64,14 @@ const submitForm = () => {
 <style scoped>
 
 form {
-
+    width: var(--mid-width);
     display: flex;
     /* background: radial-gradient(circle, rgba(53, 40, 34, 0.5) 0%, rgba(68, 51, 48, 0.8) 100%); */
     background-color: var(--panel);
-    padding: 30px;
+    padding: 30px 20px;
     border-radius: 10px;
     border: 1px solid var(--panel-border);
-    margin: 30px;
+    margin: 30px auto;
     flex-direction: column;
     align-items: center;
     gap: 10px;
@@ -84,6 +84,7 @@ label {
     color: var(--text);
 }
 input {
+    max-width: 100%;
     font-size: 20px;
     padding: 0.5rem 2rem;
     border-radius: 25px;
@@ -94,7 +95,6 @@ button {
     font-family: var(--main-text);
     padding: 0.5rem 2rem;
     border-radius: 25px;
-    border: none;
     align-self: center;
 }
 .message {
