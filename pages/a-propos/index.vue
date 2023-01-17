@@ -3,7 +3,7 @@
 
     <blockquote class="intro" v-if="content">
             <span class="quote">{{ content.accroche }}</span>
-            <img class=""  src="@/assets/images/deco/cercle-dot.png" alt="">
+            <img class=""  src="/images/deco/cercle-dot.png" alt="">
     </blockquote>
 
     <main>
@@ -14,7 +14,7 @@
             </p>
         </section>
 
-        <img class="fiveImageStripe" src="@/assets/images/deco/five-image-stripe-01.jpg" alt="">
+        <img class="fiveImageStripe" src="/images/deco/five-image-stripe-01.jpg" alt="">
     </main>
 </template>
 

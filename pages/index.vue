@@ -17,13 +17,13 @@
 
         <CardTable />
 
-        <ImageBox class="lune" imageLink="_nuxt/assets/images/deco/lune_fleurie.png"/>
+        <ImageBox class="lune" imageLink="/images/deco/lune_fleurie.png"/>
         
         <AgendaStripe />
 
         <section class="decoStripe">
             <div class="frame">
-                <ImageBox class="" imageLink="_nuxt/assets/images/deco/cercle-de-lune.png"/>
+                <ImageBox class="" imageLink="/images/deco/cercle-de-lune.png"/>
             </div>
         </section>
 

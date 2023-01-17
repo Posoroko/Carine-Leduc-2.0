@@ -1,7 +1,7 @@
 <template>
     <header>
         <div class="headerTop">
-            <img src="@/assets/images/deco/chemin-foret.jpg" alt="">
+            <img src="/images/deco/chemin-foret.jpg" alt="">
             <div class="titleBox">
                 <h2>{{ presta.type }}</h2>
                 <h1>{{ presta.displayName }}</h1>

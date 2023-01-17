@@ -73,7 +73,7 @@
                     {{ blogConfig.siteInvite }}
                 </p>
                 <div class="frame">
-                    <!-- <img src="images/deco/lune_fleurie.png" alt=""> -->
+                    <img src="/images/deco/lune_fleurie.png" alt="">
                 </div>
 
                 <p class="siteName">carineleduc.com</p>

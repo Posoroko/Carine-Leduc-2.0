@@ -17,7 +17,7 @@
 
         <div class="rightHeaderBox headerBox">
             <div class="frame">
-                <img class="aboutImg" src="@/assets/images/headers/carine.jpg" alt="">
+                <img class="aboutImg" src="/images/headers/carine.jpg" alt="">
             </div>
         </div>
         

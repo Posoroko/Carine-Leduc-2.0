@@ -2,7 +2,7 @@
     <section class="prestaPanel reactiveCardBasicStyles_userActions panel" :class="{reactiveCard_userActions: listsOn === false}">
         <div class="prestaSectionHeader">
             <figure class="prestaCardFrame">
-                <img src="images/deco/carte.jpg" alt="">
+                <img src="/images/deco/carte.jpg" alt="">
             </figure>
 
             <div class="prestaTitleBox">

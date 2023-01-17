@@ -2,10 +2,6 @@
     <div class="bandeauBox">
         <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
              viewBox="0 0 595.28 205.71" style="enable-background:new 0 0 595.28 205.71;" xml:space="preserve">
-        <!-- <style type="text/css">
-            .st0{clip-path:url(#SVGID_00000011750180739523098440000009278789042092711308_);}
-            .st1{fill:#C39932;}
-        </style> -->
         <g>
             <defs>
                 <rect id="SVGID_1_" width="595.26" height="206.51"/>

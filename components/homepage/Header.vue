@@ -1,6 +1,6 @@
 <template>
     <header>
-        <img src="images/headers/carine.jpg" alt="">
+        <img src="/images/headers/carine.jpg" alt="">
 
         <div class="titleBox">
             <h1>Carine Leduc</h1>

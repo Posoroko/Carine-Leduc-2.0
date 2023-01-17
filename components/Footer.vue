@@ -1,6 +1,6 @@
 <template>
     <footer>
-        <img src="@/assets/images/deco/foret01.png" alt="">
+        <img src="/images/deco/foret01.png" alt="">
     </footer>
 </template>
 

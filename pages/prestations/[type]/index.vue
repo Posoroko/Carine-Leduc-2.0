@@ -2,7 +2,7 @@
     <header>
         <div class="headerTop">
             <h1>{{ eric }}</h1>
-            <img src="@/assets/images/deco/chemin-foret.jpg" alt="">
+            <img src="/images/deco/chemin-foret.jpg" alt="">
         </div>
         
     </header>

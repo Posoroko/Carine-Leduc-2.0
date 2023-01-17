@@ -1,6 +1,6 @@
 <template>
     <div class="card" ref="card">
-        <img src="images/deco/carte.jpg" alt="">
+        <img src="/images/deco/carte.jpg" alt="">
 
         <p class="cardTitle" ref="cardTitle">{{ name }}</p>
     </div>

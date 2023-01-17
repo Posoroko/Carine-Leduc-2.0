@@ -1,7 +1,7 @@
 <template>
     <main class="board">
         <div class="enveloppeFrame">
-            <img src="images/deco/enveloppe.jpg" alt="">
+            <img src="/images/deco/enveloppe.jpg" alt="">
         </div>
 
         <div class="content">
