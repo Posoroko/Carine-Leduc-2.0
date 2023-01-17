@@ -29,21 +29,21 @@
 
             <div class="linkBoard">
 
-                <div class="linkCard">
+                <div class="linkCard reactiveCard_userActions">
                     <NuxtLink class="link" to="/a-propos">
                         <h4 class="aboutCardTitle"> {{ content.data.image1Title }} </h4>
                         <p class="cardText"> {{ content.data.image1Text }} </p>
                     </NuxtLink>
                 </div>
                 
-                <div class="linkCard">
+                <div class="linkCard reactiveCard_userActions">
                     <NuxtLink class="link" to="/a-propos">
                         <h4 class="aboutCardTitle"> {{ content.data.image2Title }} </h4>
                         <p class="cardText"> {{ content.data.image2Text }} </p>
                     </NuxtLink> 
                 </div>
                 
-                <div class="linkCard">
+                <div class="linkCard reactiveCard_userActions">
                     <NuxtLink class="link" to="/a-propos">
                         <h4 class="aboutCardTitle"> {{ content.data.image3Title }} </h4>
                         <p class="cardText"> {{ content.data.image3Text }} </p>
@@ -237,8 +237,6 @@ section {
 .linkCard {
     font-family: 'Work Sans', sans-serif;
     color: var(--text);
-    background-color: var(--main-bg);
-    border: 1px solid var(--border);
     border-radius: 10px;
     border-bottom-left-radius: 60px;
     box-shadow: var(--card-shadow);
@@ -257,10 +255,8 @@ section {
         width: 200px;
     }
 }
-.linkCard:hover {
-    border: 1px solid var(--main-contrast);
-    transition: 300ms border ease;
-}
+
+
 
 
 .linkCard .link {

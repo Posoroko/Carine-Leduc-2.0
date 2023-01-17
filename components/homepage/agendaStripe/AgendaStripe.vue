@@ -39,7 +39,7 @@ const { data: dates } = await useAsyncData(
         </div>
         
         <div class="mainWidthFrame">
-            <figure class="dateCard" v-for="(date, index) in dates.data.slice(0, 5)" :key="index" >
+            <figure class="dateCard reactiveCard_userActions" v-for="(date, index) in dates.data.slice(0, 5)" :key="index" >
                 <div class="cardContent">
                     <!-- Format the date to extract day and month -->
                     <p class="date">{{ date.date.slice(8, 10) + date.date.slice(4, 7) }}</p> 
@@ -58,7 +58,7 @@ const { data: dates } = await useAsyncData(
         </div>
 
         <div class="agendaLinkBox">
-            <NuxtLink class="link" to="/agenda"> voir toutes les dates</NuxtLink>
+            <NuxtLink class="link reactiveCard_userActions" to="/agenda"> voir toutes les dates</NuxtLink>
         </div>
     </section>
 </template>
@@ -89,7 +89,6 @@ const { data: dates } = await useAsyncData(
 .dateCard {
     font-family: 'Work Sans';
     width: 200px;
-    background-color: var(--second-bg);
     padding: 20px;
     border-bottom-left-radius: 60px;
     box-shadow: var(--card-shadow);
@@ -125,11 +124,10 @@ const { data: dates } = await useAsyncData(
 .lastLineHider {
     width: 100%;
     height: 20px;
-    background-color: transparent;
     position: absolute;
     bottom: 0;
     left: 0;
-    background: linear-gradient(87deg, rgba(0, 0, 0, 0) 0%, var(--second-bg) 100%); 
+    background: linear-gradient(87deg, rgba(0, 0, 0, 0) 0%, var(--main-bg) 100%); 
     text-align: right;
 }
 
@@ -139,7 +137,7 @@ const { data: dates } = await useAsyncData(
     font-size: 20px;
     font-weight: 200;
     color: var(--text);
-    background-color: var(--second-bg);
+    background-color: var(--main-bg);
     border: none;
     text-align: end;
     cursor: pointer;
@@ -154,14 +152,12 @@ const { data: dates } = await useAsyncData(
     font-family: 'Work Sans';
     font-size: 30px;
     font-weight: 300;
-    color: var(--main-text-color);
+    
     text-decoration: none;
-    background-color: var(--background);
+
     padding: 10px 25px;
-    border: 1px solid var(--panel-border);
+
     border-radius: 50px;
 }
-.agendaLinkBox .link:hover {
-    background-color: var(--panel);
-}
+
 </style>

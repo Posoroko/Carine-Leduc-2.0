@@ -5,7 +5,8 @@ export default defineNuxtConfig({
       '@/assets/css/reset.css',
       '@/assets/css/fonts.css',
       '@/assets/css/main.css',
-      '@/assets/css/blog.css'
+      '@/assets/css/blog.css',
+      '@/assets/css/userActions.css',
     ],
 
     ssr: true,
