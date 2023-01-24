@@ -30,11 +30,6 @@
             </li>
         </ul>
 
-        
-        <p class="moreText">
-            découvrir les {{ presta.displayName }}...
-        </p>
-
         <NuxtLink class="moreLink" :to="presta.path" v-if="listsOn === false">
 
         </NuxtLink>
