@@ -1,7 +1,7 @@
 <template>
-    <header class="prestationsHeader">
+    <header class="smallHeader">
         <div class="headerTop">
-            <h1>{{ eric }}</h1>
+            <h1>Prestations</h1>
             <img src="/images/deco/chemin-foret.jpg" alt="">
         </div>
         
@@ -19,6 +19,8 @@
 <script setup>
 import PrestaPanel from '@/components/prestations/PrestaPanel'
 
+
+
 const appConfig = useAppConfig()
 
 const url = appConfig.directus.items + 'Prestations'
@@ -33,36 +35,13 @@ const { data: prestations } = await useAsyncData(
     { server: true }
 )
 
+
 </script>
 
 
 
 
 <style scoped>
-
-.prestationsHeader .headerTop {
-    width: 100%;
-    height: 30vh;
-    position: relative;
-}
-.prestationsHeader .headerTop h1 {
-    font-size: 60px;
-    font-family: 'IM Fell English SC', serif;
-    color: var(--main-contrast);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
-}
-.prestationsHeader .headerTop img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    opacity: 0.2;
-}
-
 .prestaBoard {
     width: var(--mid-width);
     border-radius: 20px;
@@ -82,7 +61,7 @@ const { data: prestations } = await useAsyncData(
     position: absolute;
     top: 0;
     left: 0;
-    background-image: url("/images/deco/motif-feuille.jpg");
+    background-image: url("/images/deco/motif feuille.jpg");
     opacity: 0.08;
     z-index: -1;
 }

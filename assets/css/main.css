@@ -47,6 +47,27 @@ h1 {
 
 
 
-
+.smallHeader .headerTop {
+    width: 100%;
+    height: 50vh;
+    position: relative;
+}
+.smallHeader .headerTop h1 {
+    font-size: 60px;
+    font-family: 'IM Fell English SC', serif;
+    color: var(--gold-text);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+.smallHeader .headerTop img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.2;
+}
 
 

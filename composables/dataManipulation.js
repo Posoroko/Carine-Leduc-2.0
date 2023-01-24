@@ -18,15 +18,18 @@ export const isEmailIsWellFormated = (email) => {
 const days = ['dimanche', 'dundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi']
 const months = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
 
+//date au format: 'Le mercredi 25 décembre 2020
 export const createDateString = (date) => {
     
     const string = `le ${days[date.getDay()]} ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`
     return string
 }
 
+//date au format: '25-12
 export const formatDateDDMM = (date) => {
-    const day = date.getDate()
-    const month = date.getMonth()
+    const tempDate = new Date(date)
+    const day = tempDate.getDate()
+    const month = tempDate.getMonth() + 1
     const string = `${day < 10 ? '0' + day : day}-${month < 10 ? '0' + month : month}`
     return string
 }

@@ -1,6 +1,7 @@
 
 
 <script setup>
+import { formatDateDDMM } from '@/composables/dataManipulation'
 import TitleBar from '@/components/homepage/TitleBar.vue'
 
 const appConfig = useAppConfig()
@@ -39,10 +40,10 @@ const { data: dates } = await useAsyncData(
         </div>
         
         <div class="mainWidthFrame">
-            <figure class="dateCard reactiveCardBasicStyles_userActions reactiveCard_userActions" v-for="(date, index) in dates.data.slice(0, 5)" :key="index" >
+            <figure class="dateCard reactiveCardBasicStyles_userActions reactiveCard_userActions" v-for="(date, index) in dates.data" :key="index" >
                 <div class="cardContent">
                     <!-- Format the date to extract day and month -->
-                    <p class="date">{{ date.date.slice(8, 10) + date.date.slice(4, 7) }}</p> 
+                    <p class="date">{{ formatDateDDMM(date.date) }}</p> 
                     
                     <p class="title">{{ date.title }}</p>
 
@@ -72,7 +73,7 @@ const { data: dates } = await useAsyncData(
 }
 .box1 {
     z-index: -1;
-    background-image: url('@/assets/images/deco/patern-feuille02.jpg');
+    background-image: url('/images/deco/patern-feuille02.jpg');
     opacity: 0.05;
 }
 .box2 {
