@@ -1,17 +1,16 @@
 <template>
-    <header>
+    <header class="smallHeader">
         <div class="headerTop">
-            <h1>{{ eric }}</h1>
-            <img src="/images/deco/chemin-foret.jpg" alt="">
+            <img :src="`/images/headers/${prestaType}.jpg`" alt="">
+            <h1>{{ presta.displayName }}</h1>
         </div>
-        
     </header>
 
     <main class="prestaBoard">
         <div class="background"></div>
 
         <div class="prestaPanelBox" >
-            <PrestaPanel  :presta="presta.data[0]" :listsOn="true"/>
+            <PrestaPanel  :presta="presta" :listsOn="true"/>
         </div>        
     </main>
 </template>
@@ -35,7 +34,7 @@ const { data: presta } = await useAsyncData(
     'prestaByType', 
     async () => {
         const items = await $fetch(url, fetchOptions)
-        return items
+        return items.data[0]
     }
     ,
     { server: true }
@@ -47,35 +46,7 @@ const { data: presta } = await useAsyncData(
 
 
 <style scoped>
-header {
-    width: 100%;
-    
-}
-.headerTop {
-    width: 100%;
-    height: 30vh;
-    position: relative;
-}
-.headerTop h1 {
-    font-size: 60px;
-    font-family: 'IM Fell English SC', serif;
-    color: var(--main-contrast);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
-}
-.headerTop img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    opacity: 0.2;
-}
-.headerIntro {
-    padding: 15vh 25vw;
-}
+
 .introText {
     font-size: 18px;
     font-family: var(--main-text);

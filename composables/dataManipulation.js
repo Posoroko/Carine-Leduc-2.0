@@ -20,8 +20,8 @@ const months = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet'
 
 //date au format: 'Le mercredi 25 décembre 2020
 export const createDateString = (date) => {
-    
-    const string = `le ${days[date.getDay()]} ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`
+    const tempDate = new Date(date)
+    const string = `le ${days[tempDate.getDay()]} ${tempDate.getDate()} ${months[tempDate.getMonth()]} ${tempDate.getFullYear()}`
     return string
 }
 

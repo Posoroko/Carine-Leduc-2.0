@@ -1,15 +1,15 @@
 <template>
     <div class="box">
-        <div ref="menuIcon" class="icon menuIcon pointer">menu</div>
+        <div ref="menuIcon" class="icon menuIcon pointer" @click="toggleModal">menu</div>
 
-        <div class="modal" :class="{showModal : modalOn}">
+        <div class="modal r" v-if="modalIsOpen">
             <p class="menu">
                 <span class="tab work" v-for='tab in tabs' :key="tab.name">
                     <NuxtLink :to="tab.link"> {{ tab.name }} </NuxtLink>
                 </span>
             </p>
 
-            <span class="icon closeIcon pointer">close</span>
+            <span class="icon closeIcon pointer" @click="toggleModal">close</span>
         </div>
     </div>
 </template>
@@ -19,7 +19,10 @@
 const props = defineProps(['tabs'])
 
 // modal
-const showModal = ref(false)
+const modalIsOpen = ref(false)
+const toggleModal = () => {
+    modalIsOpen.value= !modalIsOpen.value
+}
 
 </script>
 

@@ -16,6 +16,9 @@ const props = defineProps(['tabs'])
 <style scoped>
 .box {
     font-size: 18px;
+    padding: 10px 0;
+    /* border-bottom: 1px solid var(--panel-border); */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.527);
     display: flex;
     justify-content: center;
     gap: 40px;

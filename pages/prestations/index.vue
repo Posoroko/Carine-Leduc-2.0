@@ -1,10 +1,9 @@
 <template>
     <header class="smallHeader">
         <div class="headerTop">
+            <img src="/images/headers/prestations.jpg" alt="">
             <h1>Prestations</h1>
-            <img src="/images/deco/chemin-foret.jpg" alt="">
         </div>
-        
     </header>
 
     <main class="prestaBoard">
