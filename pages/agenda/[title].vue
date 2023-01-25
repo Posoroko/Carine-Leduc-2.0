@@ -23,23 +23,16 @@ const appConfig = useAppConfig()
 
 const dateTitle = useRoute().params.title 
 
-const url = appConfig.directus.items + 'Agenda'
+const url = appConfig.directus.items + `Agenda?filter[title][_eq]=${dateTitle}`
 
 const blogFetchOptions = {
-    server: true,
-    params: {
-        filter: {
-            title: {
-                _eq: dateTitle
-            }
-        }
-    }
+    server: true
 }
-
+ 
 const { data: selectedDate } = await useAsyncData(
     'agenda', 
     async () => {
-        const items = await $fetch(url)
+        const items = await $fetch(url, blogFetchOptions)
         console.log(items.data)
         return items.data[0]
     }

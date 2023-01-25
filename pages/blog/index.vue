@@ -14,7 +14,7 @@
                 <p class="blogMoreBox blogFont blogText">
 
                     <!-- le lien doit pointer vers la page bio du blog -->
-                    <NuxtLink :to="`/blog/${blogs[0].id}`">
+                    <NuxtLink :to="`/blog/${blogs[0].title}`">
                         lire la suite...
                     </NuxtLink>
                 </p>
@@ -23,7 +23,7 @@
 
             <ul class="recentBox">
                 <h2> <span class="dot"></span> ARTICLES RECENTS</h2>
-                <NuxtLink :to="`/blog/${item.id}`" class="recent pointer blogFont" v-for="(item, index) in blogs.slice(1,5)" :key="item.id">
+                <NuxtLink :to="`/blog/${item.title}`" class="recent pointer blogFont" v-for="(item, index) in blogs.slice(1,5)" :key="item.id">
                     <p>{{ index + 1 }}.</p>
 
                     <div class="midlleBox">
