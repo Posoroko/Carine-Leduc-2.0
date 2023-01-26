@@ -60,7 +60,7 @@ const { data: prestations } = await useAsyncData(
     position: absolute;
     top: 0;
     left: 0;
-    background-image: url("/images/deco/motif feuille.jpg");
+    background-image: url("/images/deco/motif-feuille.jpg");
     opacity: 0.08;
     z-index: -1;
 }
