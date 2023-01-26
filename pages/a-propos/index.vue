@@ -22,20 +22,20 @@
 import AboutHeader from '@/components/about/AboutHeader.vue'
 import FiveImageStripe from '@/components/deco/FiveImageStripe.vue'
 
-const { getItems } = useDirectusItems();
-const content = ref(null)
-const headerImageSrc = ref(null)
+// const { getItems } = useDirectusItems();
+// const content = ref(null)
+// const headerImageSrc = ref(null)
 
 
-getItems({ collection: "Page_A_Propos" })
-    .then(res => {
-        content.value = res
-        headerImageSrc.value = res.image_entete
-        console.log(headerImageSrc.value)
-    })
-    .catch(err => {
-        console.log(err.message)
-    })
+// getItems({ collection: "Page_A_Propos" })
+//     .then(res => {
+//         content.value = res
+//         headerImageSrc.value = res.image_entete
+//         console.log(headerImageSrc.value)
+//     })
+//     .catch(err => {
+//         console.log(err.message)
+//     })
 </script>
 
 <style scoped>

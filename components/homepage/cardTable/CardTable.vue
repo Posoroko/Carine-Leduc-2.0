@@ -8,15 +8,15 @@
             <TitleBar title="Prestations" link="/prestations"/>
         </div>
 
-        <div class="cardBox cardBoxOff" v-for="presta in prestations.data" :key="presta.id">
+        <div class="cardBox cardBoxOff" v-for="presta in prestations" :key="presta.id">
             <NuxtLink class="underCard" :to="presta.path">
-                <p class="prestaDescription">{{presta.description}}</p>
+                <p class="prestaDescription">{{presta.accroche}}</p>
 
                 <span>découvrir...</span>
 
             </NuxtLink>
 
-            <ServiceCard :name='presta.displayName' />
+            <ServiceCard :name='presta.name' />
         </div>
         
     </section>
@@ -27,9 +27,6 @@ import ArtDeco from '@/components/homepage/cardTable/ArtDeco.vue'
 import ServiceCard from '@/components/homepage/cardTable/ServiceCard'
 import TitleBar from '@/components/homepage/TitleBar.vue'
 
-import { usePrestaStore } from '@/stores/prestations'
-const prestaStore = usePrestaStore()
-
 const appConfig = useAppConfig()
 
 const url = appConfig.directus.items + 'Prestations'
@@ -38,43 +35,50 @@ const { data: prestations } = await useAsyncData(
     'prestations', 
     async () => {
         const items = await $fetch(url)
-        return items
+        return items.data
     }
     ,
     { server: true }
 )
 
-//card animation
+//card animation 
 
-let observer = null
+// let observer = null
 
-onMounted(() => {
+// onMounted(() => {
 
-    const cardBoxes = document.querySelectorAll('.cardBox')
+//     const cardBoxes = document.querySelectorAll('.cardBox')
+//     console.log(cardBoxes)
 
-    observer = new IntersectionObserver((entries) => {
-        let delay = 0
+//     observer = new IntersectionObserver((entries) => {
+//         let delay = 0
 
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
+//         entries.forEach(entry => {
+//             if (entry.isIntersecting) {
 
-                setTimeout( () => {
-                    entry.target.classList.remove('cardBoxOff')
+//                 setTimeout( () => {
+//                     entry.target.classList.remove('cardBoxOff')
 
-                    entry.target.classList.add('cardBoxOn')
-                }, delay)
+//                     entry.target.classList.add('cardBoxOn')
+//                 }, delay)
 
-                delay = delay + 150  
-            } 
-        })
+//                 delay = delay + 150  
+//             } 
+//         })
 
-        observer.disconnect()
+//         observer.disconnect()
         
-    })
-    cardBoxes.forEach( cardBox => observer.observe(cardBox))
-    
-})
+//     })
+//     setTimeout( () => {
+//         cardBoxes.forEach(cardBox => observer.observe(cardBox))
+//     }, 1000)
+// })
 
+
+// const animationConfig = () => {
+
+// }
+ 
 </script>
 
 <style>
@@ -107,11 +111,11 @@ onMounted(() => {
     box-shadow: var(--card-shadow);
     
 }
-.cardBoxOff {
+/* .cardBoxOff {
     opacity: 0;
     transform: translateY(30%);
     transition: 300ms ease-out;
-}
+} */
 
 .cardBoxOn {
     opacity: 1;

@@ -50,7 +50,7 @@ let observer = null
 onMounted(() => {
     observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            console.log(entry.isIntersecting)
+
             if (entry.isIntersecting) {
                 entry.target.classList.remove('textOff')
                 entry.target.classList.add('textOn')
@@ -60,7 +60,7 @@ onMounted(() => {
             }
         })
     })
-    
+
     observer.observe(introText.value)
 })
 

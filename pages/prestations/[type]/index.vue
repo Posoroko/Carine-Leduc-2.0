@@ -2,7 +2,7 @@
     <header class="smallHeader">
         <div class="headerTop">
             <img :src="`/images/headers/${prestaType}.jpg`" alt="">
-            <h1>{{ presta.displayName }}</h1>
+            <h1>{{ presta.name }}</h1>
         </div>
     </header>
 
@@ -24,7 +24,7 @@ console.log(prestaType)
 
 const appConfig = useAppConfig()
 
-const url = appConfig.directus.items + `Prestations?filter[name][_eq]=${prestaType}`
+const url = appConfig.directus.items + `Prestations?filter[id][_eq]=${prestaType}`
 
 const fetchOptions = {
     server: true,

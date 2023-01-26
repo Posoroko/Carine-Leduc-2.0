@@ -6,7 +6,7 @@
             </figure>
 
             <div class="prestaTitleBox">
-                <h1 class="prestaTitle">{{ presta.displayName }}</h1>
+                <h1 class="prestaTitle">{{ presta.name }}</h1>
 
                 <h3 class="prestaTitle">{{  presta.accroche }}</h3>
             </div>
@@ -15,22 +15,24 @@
         </div>
 
         <ul class="prestaList" v-if="listsOn === true">
-            <li class="prestaItem" v-for="(item, index) in listOfItems.data" :key="item.id">
+            <li class="prestaItem" v-for="(item, index) in listOfItems" :key="item.id">
                 <div class="line">0{{ index + 1 }}</div>
 
                 <div class="itemBox">
-                    <h3 class="itemTitle">{{ item.displayName }}</h3>
+                    <h3 class="itemTitle">{{ item.name }}</h3>
 
                     <p class="accroche">{{ item.accroche }}</p>
 
-                    <NuxtLink class="more" :to="item.link">
+                    <!-- links in the list on the presta type page -->
+                    <NuxtLink class="more" :to="`/prestations/presta.id/${item.id}`">
                         <span>découvrir...</span>
                     </NuxtLink>
                 </div>
             </li>
         </ul>
 
-        <NuxtLink class="moreLink" :to="presta.path" v-if="listsOn === false">
+        <!-- Link for presta types on prestations page -->
+        <NuxtLink class="moreLink" :to="`/prestations/${presta.id}`" v-if="listsOn === false">
 
         </NuxtLink>
 
@@ -52,14 +54,14 @@ const props = defineProps({
 
 const appConfig = useAppConfig()
 console.log(props.presta.name)
-const url = appConfig.directus.items + props.presta.name
+const url = appConfig.directus.items + props.presta.id
 
 // fetching the list of services of the specific type (soins, massages, etc.)
 const { data: listOfItems } = await useAsyncData(
     props.presta.name, 
     async () => {
         const items = await $fetch(url)
-        return items
+        return items.data
     }
     ,
     { server: true }
