@@ -9,7 +9,7 @@ export default defineNuxtConfig({
                 {
                     rel: 'icon',
                     type: 'image/x-icon',
-                    href: 'https://fav.farm/🔥',
+                    href: 'https://img.icons8.com/ios/50/null/seed-of-life.png',
                 },
             ],
             charset: 'utf-16',

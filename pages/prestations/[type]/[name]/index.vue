@@ -3,7 +3,7 @@
         <div class="headerTop">
             <img src="/images/deco/chemin-foret.jpg" alt="">
             <div class="titleBox">
-                <h2>{{ presta.type }}</h2>
+                <h2>{{ presta.displayName }}</h2>
                 <h1>{{ presta.displayName }}</h1>
             </div>
             

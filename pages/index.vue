@@ -60,7 +60,7 @@ onMounted(() => {
             }
         })
     })
-
+    
     observer.observe(introText.value)
 })
 
@@ -91,14 +91,15 @@ onMounted(() => {
 }
 .textOff {
     opacity: 0;
-    /* transform: translateX(-50%); */
+    transform: scale(95%);
     transition: 1000ms ease;
 }
 
 .textOn {
     opacity: 1;
-    /* transform: translateX(0%); */
+    transform: scale(100%);
     transition: 1000ms ease;
+    
 }
 .marks1{
     font-family: var(--english);

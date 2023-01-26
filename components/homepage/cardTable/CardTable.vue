@@ -8,13 +8,14 @@
             <TitleBar title="Prestations" link="/prestations"/>
         </div>
 
-        <div class="cardBox" v-for="presta in prestations.data" :key="presta.id">
+        <div class="cardBox cardBoxOff" v-for="presta in prestations.data" :key="presta.id">
             <NuxtLink class="underCard" :to="presta.path">
                 <p class="prestaDescription">{{presta.description}}</p>
 
                 <span>découvrir...</span>
 
             </NuxtLink>
+
             <ServiceCard :name='presta.displayName' />
         </div>
         
@@ -43,6 +44,37 @@ const { data: prestations } = await useAsyncData(
     { server: true }
 )
 
+//card animation
+
+let observer = null
+
+onMounted(() => {
+
+    const cardBoxes = document.querySelectorAll('.cardBox')
+
+    observer = new IntersectionObserver((entries) => {
+        let delay = 0
+
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+
+                setTimeout( () => {
+                    entry.target.classList.remove('cardBoxOff')
+
+                    entry.target.classList.add('cardBoxOn')
+                }, delay)
+
+                delay = delay + 150  
+            } 
+        })
+
+        observer.disconnect()
+        
+    })
+    cardBoxes.forEach( cardBox => observer.observe(cardBox))
+    
+})
+
 </script>
 
 <style>
@@ -69,12 +101,27 @@ const { data: prestations } = await useAsyncData(
 .cardBox {
     width: min(200px, 60%);
     aspect-ratio: 5/9;
-
     border-radius: 5px;
     overflow: hidden;
     position: relative;
     box-shadow: var(--card-shadow);
+    
 }
+.cardBoxOff {
+    opacity: 0;
+    transform: translateY(30%);
+    transition: 300ms ease-out;
+}
+
+.cardBoxOn {
+    opacity: 1;
+    transform: translateY(0%);
+    transition: 500ms ease-out;
+}
+
+
+
+
 .underCard {
     background-color: var(--main-bg);
     padding: 20px;

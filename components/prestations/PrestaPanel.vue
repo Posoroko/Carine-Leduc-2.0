@@ -19,7 +19,7 @@
                 <div class="line">0{{ index + 1 }}</div>
 
                 <div class="itemBox">
-                    <h3 class="itemTitle">{{ item.name }}</h3>
+                    <h3 class="itemTitle">{{ item.displayName }}</h3>
 
                     <p class="accroche">{{ item.accroche }}</p>
 

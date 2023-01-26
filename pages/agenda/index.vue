@@ -1,8 +1,9 @@
 <template>
     <header class="smallHeader">
         <div class="headerTop">
-            <h1>Agenda</h1>
             <img src="/images/deco/chemin-foret.jpg" alt="">
+
+            <h1>Agenda</h1>
         </div>
         
     </header>
