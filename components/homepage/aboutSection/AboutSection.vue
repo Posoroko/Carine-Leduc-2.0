@@ -33,6 +33,11 @@
                     <NuxtLink class="link" to="/a-propos">
                         <h4 class="aboutCardTitle"> {{ content.data.image1Title }} </h4>
                         <p class="cardText"> {{ content.data.image1Text }} </p>
+
+                        <div class="arrowBox">
+                            <span class="icon arrow">arrow_forward
+                            </span>
+                        </div>
                     </NuxtLink>
                 </div>
                 
@@ -40,6 +45,11 @@
                     <NuxtLink class="link" to="/a-propos">
                         <h4 class="aboutCardTitle"> {{ content.data.image2Title }} </h4>
                         <p class="cardText"> {{ content.data.image2Text }} </p>
+
+                        <div class="arrowBox">
+                            <span class="icon arrow">arrow_forward
+                            </span>
+                        </div>
                     </NuxtLink> 
                 </div>
                 
@@ -47,6 +57,11 @@
                     <NuxtLink class="link" to="/a-propos">
                         <h4 class="aboutCardTitle"> {{ content.data.image3Title }} </h4>
                         <p class="cardText"> {{ content.data.image3Text }} </p>
+
+                        <div class="arrowBox">
+                            <span class="icon arrow">arrow_forward
+                            </span>
+                        </div>
                     </NuxtLink>
                 </div>
             
@@ -232,7 +247,6 @@ section {
     border-radius: 10px;
     border-bottom-left-radius: 60px;
     box-shadow: var(--card-shadow);
-    margin: 0 20px 0 0;
     z-index: 1;
     display: inline-block;
     transition: 300ms border ease;
@@ -252,9 +266,11 @@ section {
 
 
 .linkCard .link {
+    height: 100%;
     padding: 25px;
-    padding-bottom: 40px;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 
@@ -266,14 +282,25 @@ section {
 .cardText {
     font-size: 18px;
     font-weight: 200;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     overflow: hidden;
 }
 
+.arrowBox {
+    /* margin-top: 30px; */
+    display: flex;
+    justify-content: flex-end;
+}
 
 
-
-
-
-
+.arrow {
+    font-size: 40px;
+    padding-right: 30px;
+    opacity: 0;
+    transition: 300ms ease;
+}
+.linkCard:hover .link .arrowBox .arrow {
+    padding-right: 0px;
+    opacity: 1;
+}
 </style>

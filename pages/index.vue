@@ -3,7 +3,7 @@
         <Header />
         
         <section class="introHeader">
-            <p class="garamond">
+            <p class="garamond" ref="introText">
                 <!-- <span class="marks1">"</span> -->
                 Ma mission est d’éclairer ton chemin afin de mettre en lumière tes propres richesses en source
                 d’évolution personnelle afin d’atteindre la sérénité et la paix. Nous entrons aujourd’hui dans
@@ -43,8 +43,30 @@ import AboutSection from '@/components/homepage/aboutSection/AboutSection'
 import ImageBox from '@/components/deco/ImageBox'
 import NewsletterWidget from '@/components/misc/NewsletterWidget'
 
+const introText = ref(null)
+
+let observer = null
+
+onMounted(() => {
+    observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            console.log(entry.isIntersecting)
+            if (entry.isIntersecting) {
+                entry.target.classList.remove('textOff')
+                entry.target.classList.add('textOn')
+            } else {
+                entry.target.classList.remove('textOn')
+                entry.target.classList.add('textOff')
+            }
+        })
+    })
+
+    observer.observe(introText.value)
+})
 
 </script>
+
+
 
 <style scoped>
 .introHeader {
@@ -66,6 +88,17 @@ import NewsletterWidget from '@/components/misc/NewsletterWidget'
     padding: 15px;
     margin: 100px 0;
     position: relative;
+}
+.textOff {
+    opacity: 0;
+    /* transform: translateX(-50%); */
+    transition: 1000ms ease;
+}
+
+.textOn {
+    opacity: 1;
+    /* transform: translateX(0%); */
+    transition: 1000ms ease;
 }
 .marks1{
     font-family: var(--english);
@@ -107,5 +140,4 @@ import NewsletterWidget from '@/components/misc/NewsletterWidget'
 .lune {
     margin: 100px 0;
 }
-
 </style>

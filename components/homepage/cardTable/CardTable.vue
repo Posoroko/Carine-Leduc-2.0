@@ -46,12 +46,12 @@ const { data: prestations } = await useAsyncData(
 </script>
 
 <style>
-
 .table {
     width: var(--mid-width);
     background-color: var(--second-bg);
     padding: 90px 60px;
     margin: 0 auto;
+    box-shadow: var(--panel-shadow) ;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -99,5 +99,4 @@ const { data: prestations } = await useAsyncData(
     position: absolute;
     bottom: 5%;
 }
-
 </style>

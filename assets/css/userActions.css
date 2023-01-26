@@ -1,17 +1,26 @@
 
 /* All card like element that react when hovering. */
 
+
+:root {
+    --action-bg: #1c1a19;
+    --action-bg-hover: #1f1c1b;
+
+    --action-border: #313131;
+    --action-border-hover: #585858;
+}
+
 .reactiveCardBasicStyles_userActions {
     color: var(--main-text-color);
-    background-color: var(--main-bg);
-    border: 1px solid var(--border);
+    background-color: var(--action-bg);
+    border: 1px solid var(--action-border);
 }
 
 .reactiveCard_userActions {
     cursor: pointer;
 }
 .reactiveCard_userActions:hover {
-    color: var(--main-text-color);
-    border: 1px solid var(--main-contrast);
+    background-color: var(--action-bg-hover);
+    border: 1px solid var(--action-border-hover);
     transition: 300ms border ease;
 }

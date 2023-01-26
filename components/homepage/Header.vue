@@ -17,7 +17,7 @@
 
 header {
     width: 100%;
-    height: 75vh;
+    height: 80vh;
     background-color: rgb(50, 50, 50);
     position: relative;
     overflow: hidden;

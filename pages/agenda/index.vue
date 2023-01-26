@@ -62,6 +62,7 @@ const { data: dates } = await useAsyncData(
     padding: 30px;
     border-radius: var(--panel-radius);
     margin-top: 50px;
+    box-shadow: var(--panel-shadow);
     position: relative;
     display: flex;
     flex-wrap: wrap;

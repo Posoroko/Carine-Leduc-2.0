@@ -1,6 +1,7 @@
 <template>
-    <header>
-        <h1>{{ blog.title }}</h1>
+    <header class="blogHeader">
+        <h1 class="title">{{ blog.title }}</h1>
+        <h2 class="subtitle"> {{ blog.subtitle }}</h2>
         <p v-if="blog" :v-html="blog.content"></p>
     </header>
 
@@ -37,4 +38,15 @@ const { data: blog } = await useAsyncData(
 </script>
 
 <style scoped>
+.blogHeader .title {
+    font-size: 80px;
+    font-family: var(--blog-text-font);
+    padding: 30px 0 0px 0;
+    border-bottom: 2px solid var(--blog-color);
+}
+.blogHeader .subtitle {
+    font-size: 40px;
+    font-family: var(--blog-text-font);
+    padding: 10px 0;
+}
 </style>

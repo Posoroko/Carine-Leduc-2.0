@@ -41,20 +41,25 @@ const { data: dates } = await useAsyncData(
         
         <div class="mainWidthFrame">
             <figure class="dateCard reactiveCardBasicStyles_userActions reactiveCard_userActions" v-for="(date, index) in dates.data" :key="index" >
-                <div class="cardContent">
-                    <!-- Format the date to extract day and month -->
-                    <p class="date">{{ formatDateDDMM(date.date) }}</p> 
-                    
-                    <p class="title">{{ date.title }}</p>
-
-                    <div class="description">
-                        <span>{{ date.description }}</span>
+                <NuxtLink class="link" to="">
+                    <div class="cardContent">
+                        <!-- Format the date to extract day and month -->
+                        <p class="date">{{ formatDateDDMM(date.date) }}</p> 
                         
-                        <div class="lastLineHider">...</div>
+                        <p class="title">{{ date.title }}</p>
+
+                        <div class="description">
+                            <span>{{ date.description }}</span>
+                            
+                            <div class="lastLineHider">...</div>
+                        </div>
                     </div>
 
-                    <button class="readMore marginTop50"><NuxtLink>plus...</NuxtLink></button>
-                </div>
+                    <div class="arrowBox">
+                        <span class="icon arrow">arrow_forward
+                        </span>
+                    </div>
+                </NuxtLink>
             </figure>
         </div>
 
@@ -120,7 +125,6 @@ const { data: dates } = await useAsyncData(
 }
 .cardContent {
     width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -153,16 +157,22 @@ const { data: dates } = await useAsyncData(
     text-align: right;
 }
 
-.readMore {
-    width: 100%;
-    font-family: 'Work Sans';
-    font-size: 20px;
-    font-weight: 200;
-    color: var(--text);
-    background-color: var(--main-bg);
-    border: none;
-    text-align: end;
-    cursor: pointer;
+.arrowBox {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.arrow {
+    font-size: 40px;
+    padding-right: 30px;
+    opacity: 0;
+    transition: 300ms ease;
+}
+.dateCard:hover .link .arrowBox .arrow {
+    padding-right: 0px;
+    opacity: 1;
 }
 
 .agendaLinkBox {
@@ -182,5 +192,4 @@ const { data: dates } = await useAsyncData(
     border-radius: 50px;
     margin: 20px;
 }
-
 </style>

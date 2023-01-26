@@ -21,10 +21,11 @@ const props = defineProps({
 </script>
 
 <style scoped>
-
 .blogHeader h1{
     font-size: clamp(32px, 5vw, 80px);
-    font-weight: 700;
+    font-family: var(--blog-text-font);
+    /* font-family: 'Roboto'; */
+    font-weight: 800;
     text-align: center;
     padding-top: 20px;
     display: grid;
@@ -33,6 +34,7 @@ const props = defineProps({
 
 .blogHeader h2{
     font-size: clamp(16px, 2vw, 25px);
+    font-family: var(--blog-text-font);
     font-weight: 400;
     text-align: center;
     padding-bottom: 20px;
@@ -53,5 +55,4 @@ const props = defineProps({
     display: flex;
     justify-content: space-around;
 }
-
 </style>

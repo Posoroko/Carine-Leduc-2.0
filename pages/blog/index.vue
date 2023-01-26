@@ -180,7 +180,7 @@ const { data: blogConfig } = await useAsyncData(
 }
 .latestBox h1 {
     font-size: 30px;
-    font-weight: 600;
+    font-weight: 700;
     margin-top: 10px;
 }
 
@@ -191,7 +191,7 @@ const { data: blogConfig } = await useAsyncData(
 /* recent blogs */
 .recentBox h2 {
     font-size: 30px;
-    font-weight: 600;
+    font-weight: 700;
     padding: 20px;
     display: flex;
     justify-content: center;

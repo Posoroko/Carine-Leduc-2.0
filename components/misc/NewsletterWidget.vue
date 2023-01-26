@@ -62,25 +62,25 @@ const submitForm = () => {
 </script>
 
 <style scoped>
-
 form {
     width: var(--mid-width);
-    display: flex;
-    /* background: radial-gradient(circle, rgba(53, 40, 34, 0.5) 0%, rgba(68, 51, 48, 0.8) 100%); */
+    color: black;
+    font-family: var(--main-text-font);
     background-color: var(--panel);
     padding: 30px 20px;
-    border-radius: 10px;
     border: 1px solid var(--panel-border);
+    border-radius: 10px;
     margin: 30px auto;
+    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-
+    position: relative;
 }
+
 label {
     font-size: max(20px, 2vw);
-    font-family: var(--main-text);
-    font-weight: 300;
+    font-weight: 400;
     color: var(--text);
 }
 input {
