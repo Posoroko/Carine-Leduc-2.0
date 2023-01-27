@@ -21,20 +21,17 @@ const props = defineProps({
 
 const tabs = ref([
     { name: 'Accueil', link: '/' },
-    { name: 'Blog', link: '/blog' },
     { name: 'Prestations', link: '/prestations' },
     { name: 'Contact', link: '/contact' },
     { name: 'Agenda', link: '/agenda' },
     { name: 'A propos', link: '/a-propos' },
+    { name: 'Blog', link: '/blog' }
 ])
 
 </script>
 
 <style>
 
-.topBar {
-    padding: 3px 0;
-}
 
 /* blogStyles */
     .blogTopBar .menuBox .box .modal{
@@ -63,11 +60,6 @@ const tabs = ref([
 
     .mainSiteTopBar{
         background-color: var(--background);
-    }
-
-    .mainSiteTopBar .barBox .box .tab{
-        font-family: var(--main-text-font);
-        color: var(--main-text-color);
     }
 
     .mainSiteTopBar .barBox .box .tab:hover .line{

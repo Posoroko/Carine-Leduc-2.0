@@ -1,8 +1,13 @@
 <template>
+    
     <section class="prestaPanel reactiveCardBasicStyles_userActions panel" :class="{reactiveCard_userActions: listsOn === false}">
+        <img class="cardMoon" src="/images/deco/presta-panel-moon.jpg" alt="">
+        
         <div class="prestaSectionHeader">
             <figure class="prestaCardFrame">
-                <img src="/images/deco/carte.jpg" alt="">
+
+                    <img class="cardImage" src="/images/deco/carte.jpg" alt="">
+
             </figure>
 
             <div class="prestaTitleBox">
@@ -16,6 +21,8 @@
 
         <ul class="prestaList" v-if="listsOn === true">
             <li class="prestaItem" v-for="(item, index) in listOfItems" :key="item.id">
+                
+
                 <div class="line">0{{ index + 1 }}</div>
 
                 <div class="itemBox">
@@ -78,6 +85,29 @@ const { data: listOfItems } = await useAsyncData(
     display: block;
     position: relative;
     z-index: 10;
+    overflow: hidden;
+}
+.cardMoon {
+    height: 130%;
+    position: absolute;
+    top: -10%;
+    opacity: 0;
+    mix-blend-mode: multiply;
+    filter: blur(5px);
+    transition: 500ms ease;
+}
+.prestaPanelBox:nth-child(2n+2) .prestaPanel .cardMoon {
+    transform: scaleX(-1);
+    right: 0;
+}
+.prestaPanelBox:nth-child(2n+3) .prestaPanel .cardMoon {
+    
+    left: 0;
+}
+.prestaPanel:hover .cardMoon {
+    filter: blur(1px);
+    opacity: 0.4;
+    transition: 500ms ease;
 }
 
 .moreText {
@@ -111,6 +141,11 @@ const { data: listOfItems } = await useAsyncData(
     flex-direction: row-reverse;
 }
 
+
+.cardImage {
+    border-radius:  5px;
+}
+
 .prestaSectionHeader .prestaTitleBox {
     padding: 30px 20px;
     border-radius: 10px;
@@ -140,8 +175,6 @@ const { data: listOfItems } = await useAsyncData(
 .prestaSectionHeader{
     padding: 30px 20px;
     position: relative;
-    /* display: flex;
-    flex-direction: column; */
 }
 
 .prestaSectionHeader .prestaTitleBox h1 {
@@ -151,9 +184,10 @@ const { data: listOfItems } = await useAsyncData(
 }
 .prestaSectionHeader .prestaTitleBox h3 {
     font-size: var(--item-subtitle-size);
-    font-family: var(--main-text);
+    font-family: var(--main-text-font);
     font-weight: 300;
     color: var(--text);
+    margin-top: 20px;
 }
 
 .prestaList{
@@ -161,7 +195,11 @@ const { data: listOfItems } = await useAsyncData(
 }
 .prestaList .prestaItem {
     font-family: var(--main-text);
+    position: relative;
 }
+
+
+
 .prestaList .prestaItem .line {
     font-weight: 200;
     color: var(--text);
@@ -169,6 +207,7 @@ const { data: listOfItems } = await useAsyncData(
 }
 
 .prestaList .prestaItem .itemBox {
+    font-family: var(--main-text-font);
     padding: clamp(5px, 2vw, 30px);
     display: flex;
     justify-content: space-between;
@@ -196,8 +235,4 @@ const { data: listOfItems } = await useAsyncData(
     display: grid;
     place-items: center;
 }
-
-
-
-
 </style>

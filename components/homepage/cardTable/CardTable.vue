@@ -12,7 +12,7 @@
             <NuxtLink class="underCard" :to="presta.path">
                 <p class="prestaDescription">{{presta.accroche}}</p>
 
-                <span>découvrir...</span>
+                <div class="icon">arrow_forward</div>
 
             </NuxtLink>
 
@@ -41,43 +41,7 @@ const { data: prestations } = await useAsyncData(
     { server: true }
 )
 
-//card animation 
 
-// let observer = null
-
-// onMounted(() => {
-
-//     const cardBoxes = document.querySelectorAll('.cardBox')
-//     console.log(cardBoxes)
-
-//     observer = new IntersectionObserver((entries) => {
-//         let delay = 0
-
-//         entries.forEach(entry => {
-//             if (entry.isIntersecting) {
-
-//                 setTimeout( () => {
-//                     entry.target.classList.remove('cardBoxOff')
-
-//                     entry.target.classList.add('cardBoxOn')
-//                 }, delay)
-
-//                 delay = delay + 150  
-//             } 
-//         })
-
-//         observer.disconnect()
-        
-//     })
-//     setTimeout( () => {
-//         cardBoxes.forEach(cardBox => observer.observe(cardBox))
-//     }, 1000)
-// })
-
-
-// const animationConfig = () => {
-
-// }
  
 </script>
 
@@ -109,45 +73,49 @@ const { data: prestations } = await useAsyncData(
     overflow: hidden;
     position: relative;
     box-shadow: var(--card-shadow);
-    
-}
-/* .cardBoxOff {
-    opacity: 0;
-    transform: translateY(30%);
-    transition: 300ms ease-out;
-} */
-
-.cardBoxOn {
-    opacity: 1;
-    transform: translateY(0%);
-    transition: 500ms ease-out;
 }
 
-
-
+.cardBox:hover {
+    cursor: pointer;
+}
 
 .underCard {
     background-color: var(--main-bg);
-    padding: 20px;
     border: 1px solid var(--border);
-    border-radius: 10px;
+    border-radius: 5px;
     position: absolute;
     top: 1px;
     right: 1px;
     bottom: 1px;
     left: 1px;
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .prestaDescription {
     color: var(--text);
+    font-family: var(--main-text-font);
+    font-size: 20px;
+    font-weight: 300;
     text-align: center;
+    padding: 40px 20px;
 }
 
-.underCard span {
-    color: var(--text);
-    font-family: 'Work Sans';
-    position: absolute;
-    bottom: 5%;
+
+
+.underCard .icon {
+    color: var(--main-text-color);
+    text-align: right;
+    font-size: 48px;
+    font-weight: 100;
+    padding-right: 50px;
+    padding-bottom: 20px;
+    transition: 300ms ease;
+}
+
+.cardBox:hover .underCard .icon {
+    
+    padding-right: 10px;
+    transition: 300ms ease;
 }
 </style>

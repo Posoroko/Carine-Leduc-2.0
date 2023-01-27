@@ -46,7 +46,6 @@ const { data: presta } = await useAsyncData(
 
 
 <style scoped>
-
 .introText {
     font-size: 18px;
     font-family: var(--main-text);
@@ -63,7 +62,7 @@ const { data: presta } = await useAsyncData(
     width: var(--mid-width);
     border-radius: 20px;
     padding: clamp(5px, 2vw, 30px);
-    margin: auto;
+    margin: 50px auto;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -82,5 +81,4 @@ const { data: presta } = await useAsyncData(
     opacity: 0.08;
     z-index: -1;
 }
-
 </style>

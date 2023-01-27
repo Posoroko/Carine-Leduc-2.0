@@ -9,19 +9,19 @@
 
             <div class="imageBoard">
                 <div class="leftBox frame imageBox">
-                    <img class="aboutImg" :src="`https://ku3vu7zb.directus.app/assets/${content.data.image2}.jpg`" alt="">
+                    <img class="aboutImg" :src="`/images/about-section/mes-techniques.jpg`" alt="">
 
                     <NuxtLink class="imageTitle" to="/a-propos"> {{ content.data.image2Title }} </NuxtLink>
                 </div>
 
                 <div class="rightBox imageBox">
                     <div class="rightTopBox frame rightInnerBox">
-                        <img class="aboutImg" :src="`https://ku3vu7zb.directus.app/assets/${content.data.image1}.jpg`" alt="">
+                        <img class="aboutImg" :src="`/images/about-section/me-connaitre.jpg`" alt="">
                         <NuxtLink class="imageTitle" to="/a-propos"> {{ content.data.image1Title }} </NuxtLink>
                     </div>
 
                     <div class="rightBottomBox frame rightInnerBox">
-                        <img class="aboutImg" :src="`https://ku3vu7zb.directus.app/assets/${content.data.image3}.jpg`" alt="">
+                        <img class="aboutImg" :src="`/images/about-section/cabinet.jpg`" alt="">
                         <NuxtLink class="imageTitle" to="/a-propos"> {{ content.data.image3Title }} </NuxtLink>
                     </div>
                 </div>
