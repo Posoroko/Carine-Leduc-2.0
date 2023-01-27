@@ -60,7 +60,7 @@ h1 {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    /* transform: translate(-50%, -50%); */
     
 }
 .smallHeader .headerTop img {
@@ -72,3 +72,22 @@ h1 {
 }
 
 
+.animatedTitle {
+    animation-name: comeIn;
+    animation-duration: 1000ms;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes comeIn {
+    from { 
+        opacity: 0;
+        transform: scale(150%) translate(-50%, -50%);
+        filter: blur(3px);
+    }
+    to { 
+        opacity: 1;
+        transform: scale(100%) translate(-50%, -50%);
+        filter: blur(0px);
+    }
+}

@@ -35,7 +35,8 @@ header img {
 }
 .titleBox h1 {
     font-size: 9vw;
-    font-family: var(--calligraphy);
+    font-family: var(--main-text-font);
+    font-weight: 100;
     color: rgb(202, 151, 40);
 
 }

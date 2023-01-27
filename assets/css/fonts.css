@@ -30,7 +30,7 @@
     /* text sizes */
 
     --item-title-size: clamp(22px, 3vw, 40px);
-    --item-subtitle-size: clamp(16px, 1.5vw, 25px);
+    --item-subtitle-size: clamp(16px, 1.5vw, 22px);
     --main-text-size: clamp(16px, 1.5vw, 18px)
 
 }

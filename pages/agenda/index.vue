@@ -3,7 +3,7 @@
         <div class="headerTop">
             <img src="/images/deco/chemin-foret.jpg" alt="">
 
-            <h1>Agenda</h1>
+            <h1 class="animatedTitle">Agenda</h1>
         </div>
         
     </header>

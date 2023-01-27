@@ -2,7 +2,7 @@
     <header class="smallHeader">
         <div class="headerTop">
             <img src="/images/headers/prestations.jpg" alt="">
-            <h1>Prestations</h1>
+            <h1 class="animatedTitle">Prestations</h1>
         </div>
     </header>
 
