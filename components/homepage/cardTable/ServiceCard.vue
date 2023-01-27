@@ -39,6 +39,7 @@ const adjustFontSizeToCardWidth = () => {
     width: 100%;
     height: 100%;
 }
+
 .cardTitle {
     font-size: clamp(20px, 3vw, 28px);
     font-family: 'IM Fell English SC';
