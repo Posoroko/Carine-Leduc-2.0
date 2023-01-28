@@ -22,9 +22,9 @@ const props = defineProps({
 const tabs = ref([
     { name: 'Accueil', link: '/' },
     { name: 'Prestations', link: '/prestations' },
-    { name: 'Contact', link: '/contact' },
+    { name: 'A propos', link: '/#aboutSection' },
     { name: 'Agenda', link: '/agenda' },
-    { name: 'A propos', link: '/a-propos' },
+    { name: 'Contact', link: '/contact' },
     { name: 'Blog', link: '/blog' }
 ])
 

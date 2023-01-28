@@ -3,8 +3,7 @@
         <div class="headerTop">
             <img src="/images/deco/chemin-foret.jpg" alt="">
             <div class="titleBox">
-                <h2>{{ presta.displayName }}</h2>
-                <h1>{{ presta.displayName }}</h1>
+                <h1>{{ presta.name }}</h1>
             </div>
             
         </div>
@@ -15,29 +14,24 @@
         <p class="description">
             {{ presta.description }}
         </p>
-        
-        
-    </main>
+    </main> 
 </template>
 
 <script setup>
 const prestaType = useRoute().params.type
 const prestaName = useRoute().params.name
 
-const appConfig = useAppConfig()
+const appConfig = useAppConfig() 
 
-const url = appConfig.directus.items + `${prestaType}?filter[name][_eq]=${prestaName}`
-
-const fetchOptions = {
-    server: true,
-}
+const url = appConfig.directus.items + `${prestaType}?filter[slug][_eq]=${prestaName}`
 
 const { data: presta } = await useAsyncData(
     'prestaByName', 
     async () => {
-        const items = await $fetch(url, fetchOptions)
+        const items = await $fetch(url)
+        console.log(items.data)
         return items.data[0]
-    }
+    } 
     ,
     { server: true }
 )
@@ -132,7 +126,6 @@ header {
     font-size: var(--main-text-size);
     color: var(--main-text-color);
     font-family: var(--main-text-font);
+    white-space: pre-wrap;
 }
-
-
 </style>

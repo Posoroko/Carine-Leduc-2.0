@@ -3,26 +3,31 @@
         
         <div class="board">
             <div class="titleBox">
-                <TitleBar :title="content.data.title" :link="linkToAboutPage"/>
-                <h2 class="subtitle">{{ content.data.subtitle }}</h2>
+                <TitleBar title="qui je suis" link="a-propos/a-propos-de-moi"/>
             </div>
 
             <div class="imageBoard">
                 <div class="leftBox frame imageBox">
                     <img class="aboutImg" :src="`/images/about-section/mes-techniques.jpg`" alt="">
 
-                    <NuxtLink class="imageTitle" to="/a-propos"> {{ content.data.image2Title }} </NuxtLink>
+                    <NuxtLink class="link" to="a-propos/mes-techniques"> 
+                        <h2 class="imageTitle">mes techniques</h2>
+                    </NuxtLink>
                 </div>
 
                 <div class="rightBox imageBox">
                     <div class="rightTopBox frame rightInnerBox">
                         <img class="aboutImg" :src="`/images/about-section/me-connaitre.jpg`" alt="">
-                        <NuxtLink class="imageTitle" to="/a-propos"> {{ content.data.image1Title }} </NuxtLink>
+                        <NuxtLink class="link" to="a-propos/a-propos-de-moi"> 
+                            <h2 class="imageTitle">à propos de moi</h2>
+                        </NuxtLink>
                     </div>
 
                     <div class="rightBottomBox frame rightInnerBox">
                         <img class="aboutImg" :src="`/images/about-section/cabinet.jpg`" alt="">
-                        <NuxtLink class="imageTitle" to="/a-propos"> {{ content.data.image3Title }} </NuxtLink>
+                        <NuxtLink class="link" to="a-propos/le-cabinet">
+                            <h2 class="imageTitle">le cabinet</h2>
+                        </NuxtLink>
                     </div>
                 </div>
             </div>
@@ -30,9 +35,9 @@
             <div class="linkBoard">
 
                 <div class="linkCard reactiveCardBasicStyles_userActions reactiveCard_userActions">
-                    <NuxtLink class="link" to="/a-propos">
-                        <h4 class="aboutCardTitle"> {{ content.data.image1Title }} </h4>
-                        <p class="cardText"> {{ content.data.image1Text }} </p>
+                    <NuxtLink class="link" to="a-propos/mes-techniques">
+                        <h4 class="aboutCardTitle"> mes techniques </h4>
+                        <p class="cardText"> {{ listOfItems[0].accroche }} </p>
 
                         <div class="arrowBox">
                             <span class="icon arrow">arrow_forward
@@ -42,9 +47,9 @@
                 </div>
                 
                 <div class="linkCard reactiveCardBasicStyles_userActions reactiveCard_userActions">
-                    <NuxtLink class="link" to="/a-propos">
-                        <h4 class="aboutCardTitle"> {{ content.data.image2Title }} </h4>
-                        <p class="cardText"> {{ content.data.image2Text }} </p>
+                    <NuxtLink class="link" to="a-propos/a-propos-de-moi">
+                        <h4 class="aboutCardTitle"> à propos de moi </h4>
+                        <p class="cardText"> {{ listOfItems[1].accroche }} </p>
 
                         <div class="arrowBox">
                             <span class="icon arrow">arrow_forward
@@ -54,9 +59,9 @@
                 </div>
                 
                 <div class="linkCard reactiveCardBasicStyles_userActions reactiveCard_userActions">
-                    <NuxtLink class="link" to="/a-propos">
-                        <h4 class="aboutCardTitle"> {{ content.data.image3Title }} </h4>
-                        <p class="cardText"> {{ content.data.image3Text }} </p>
+                    <NuxtLink class="link" to="a-propos/le-cabinet">
+                        <h4 class="aboutCardTitle"> le cabinet </h4>
+                        <p class="cardText"> {{ listOfItems[2].accroche }} </p>
 
                         <div class="arrowBox">
                             <span class="icon arrow">arrow_forward
@@ -74,21 +79,24 @@
 <script setup>
 import TitleBar from '@/components/homepage/TitleBar'
 
-const linkToAboutPage = ref('/a-propos')
-
 const appConfig = useAppConfig()
 
-const url = appConfig.directus.items + 'HomepageAbout'
+const url = appConfig.directus.items + 'aboutPages?fields=title,accroche'
 
-const fetchOptions = {
-    key: 'aboutSection',
-    server: true
-}
+// fetching the list of services of the specific type (soins, massages, etc.)
 
-const { data: content } = await useFetch(url, fetchOptions)
+const { data: listOfItems } = await useAsyncData(
+    'aboutSection',
+    async () => {
+        const items = await $fetch(url)
 
+        return items.data
+    }
+    ,
+    { server: true }
+)
 
-
+ 
 </script>
 
 <style scoped>
@@ -97,7 +105,7 @@ section {
 }
 .board {
     background-color: var(--second-bg);
-    padding: 5vw;
+    padding: 4vw 5vw 5vw 5vw;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -105,17 +113,8 @@ section {
     align-items: center;
 }
 
-.subtitle {
-    color: var(--text);
-    font-family: 'Work sans';
-    font-size: 20px;
-    font-weight: 100;
-    text-align: center;
-}
-
 .imageBoard {
     display: flex;
-    /* flex-wrap: wrap; */
     gap: 20px;
 }
 
@@ -126,8 +125,15 @@ section {
     place-items: center;
     overflow: hidden;
 }
+.frame .link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
 
-.imageTitle {
+.frame .link .imageTitle {
     color: rgb(255, 249, 223);
     font-size: max(20px, 3vw);
     font-weight: 200;
@@ -136,7 +142,7 @@ section {
     left: 50%;
     bottom: 50%;
     transform: translate(-50%, 50%);
-    transition: 400ms all cubic-bezier(0,.99,.39,.97);
+    transition: 400ms all cubic-bezier(0, .99, .39, .97);
 }
 
 .frame:hover .imageTitle {
@@ -282,7 +288,7 @@ section {
 .cardText {
     font-size: 18px;
     font-weight: 200;
-    /* margin-top: 20px; */
+    margin-top: 20px;
     overflow: hidden;
 }
 

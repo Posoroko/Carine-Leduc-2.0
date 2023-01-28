@@ -11,7 +11,7 @@
     <main>
         <div class="board">
             <div class="dateCard reactiveCardBasicStyles_userActions reactiveCard_userActions" v-for="date in dates" :key="date.id">
-                <NuxtLink :to="`/agenda/${date.title}`">
+                <NuxtLink :to="`/agenda/${date.slug}`">
                     <div class="titleBox">
                         <p class="date">{{ formatDateDDMM(date.date) }} </p>
                         <p class="title">{{ date.title }}</p>
@@ -39,22 +39,22 @@ import { formatDateDDMM } from '@/composables/dataManipulation'
 
 const appConfig = useAppConfig()
 
-const url = appConfig.directus.items + 'Agenda'
+const url = appConfig.directus.items + 'Agenda?sort=date'
 
 const { data: dates } = await useAsyncData(
     'agenda', 
     async () => {
         const items = await $fetch(url)
         console.log(items.data)
-        items.data.forEach(item => {
-            item.time = item.time.slice(0, 5)
-        })
+        // items.data.forEach(item => {
+        //     item.time = item.time.slice(0, 5)
+        // })
         return items.data
     }
     ,
     { server: true }
 )
-
+ 
 </script>
 
 <style scoped>
@@ -77,6 +77,11 @@ const { data: dates } = await useAsyncData(
     border-radius: 10px;
     border-bottom-left-radius: 80px;
     position: relative;
+}
+
+.dateCard:hover {
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.603);
+    transition: all 300ms ease;
 }
 
 .dateCard .titleBox {

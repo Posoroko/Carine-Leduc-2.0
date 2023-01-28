@@ -1,7 +1,7 @@
 <template>
     <footer class="">
         <div class="credits">
-            <p>site et images par Studio Posoroko</p>
+            <p>site et images par posoroko.com</p>
         </div>
     </footer>
 </template>

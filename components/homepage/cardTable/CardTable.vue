@@ -9,7 +9,7 @@
         </div>
 
         <div class="cardBox cardBoxOff" v-for="presta in prestations" :key="presta.id">
-            <NuxtLink class="underCard" :to="presta.path">
+            <NuxtLink class="underCard" :to="`/prestations/${presta.id}`">
                 <p class="prestaDescription">{{presta.accroche}}</p>
 
                 <div class="icon">arrow_forward</div>

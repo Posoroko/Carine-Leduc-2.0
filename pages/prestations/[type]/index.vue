@@ -2,7 +2,7 @@
     <header class="smallHeader">
         <div class="headerTop">
             <img :src="`/images/headers/${prestaType}.jpg`" alt="">
-            <h1>{{ presta.name }}</h1>
+            <h1 class="animatedTitle">{{ presta.name }}</h1> 
         </div>
     </header>
 
@@ -34,6 +34,7 @@ const { data: presta } = await useAsyncData(
     'prestaByType', 
     async () => {
         const items = await $fetch(url, fetchOptions)
+        // console.log(items.data[0])
         return items.data[0]
     }
     ,

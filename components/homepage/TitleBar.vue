@@ -1,7 +1,7 @@
 <template>
     <div class="titleBox">
         <h2 class="sectionTitle">
-            <NuxtLink :to="link"> {{ title }} </NuxtLink>
+            <NuxtLink class="link" :to="link"> {{ title }} </NuxtLink>
         </h2>
     </div>
 </template>
@@ -17,19 +17,17 @@ const props = defineProps(['title', 'link'])
     width: 100%;
     padding: 0 0 20px 0;
     margin: auto;
-
 }
 .sectionTitle {
     color: var(--text);
     font-family: 'Work Sans';
-    font-weight: 200;
+    font-weight: 300;
     font-size: clamp(30px, 3vw, 50px);
     text-align: center;
-    cursor: pointer;
+    
 }
 
-
-
-
-
+.sectionTitle h2 .link{
+    cursor: pointer;
+}
 </style>

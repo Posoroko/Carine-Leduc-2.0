@@ -3,7 +3,7 @@
         <Header />
         
         <section class="introHeader">
-            <p class="garamond" ref="introText">
+            <p class="garamond introText" ref="introText">
                 <!-- <span class="marks1">"</span> -->
                 Ma mission est d’éclairer ton chemin afin de mettre en lumière tes propres richesses en source
                 d’évolution personnelle afin d’atteindre la sérénité et la paix. Nous entrons aujourd’hui dans
@@ -27,7 +27,7 @@
             </div>
         </section>
 
-        <AboutSection />
+        <AboutSection id="aboutSection" />
 
         <NewsletterWidget />
 
@@ -89,18 +89,7 @@ onMounted(() => {
     margin: 100px 0;
     position: relative;
 }
-.textOff {
-    opacity: 0;
-    transform: scale(95%);
-    transition: 1000ms ease;
-}
 
-.textOn {
-    opacity: 1;
-    transform: scale(100%);
-    transition: 1000ms ease;
-    
-}
 .marks1{
     font-family: var(--english);
     font-size: 60px;

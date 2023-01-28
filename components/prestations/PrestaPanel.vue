@@ -31,7 +31,7 @@
                     <p class="accroche">{{ item.accroche }}</p>
 
                     <!-- links in the list on the presta type page -->
-                    <NuxtLink class="more" :to="`/prestations/presta.id/${item.id}`">
+                    <NuxtLink class="more" :to="`/prestations/${presta.id}/${item.slug}`">
                         <span>découvrir...</span>
                     </NuxtLink>
                 </div>
@@ -68,6 +68,7 @@ const { data: listOfItems } = await useAsyncData(
     props.presta.name, 
     async () => {
         const items = await $fetch(url)
+        console.log(items.data[0]) 
         return items.data
     }
     ,
