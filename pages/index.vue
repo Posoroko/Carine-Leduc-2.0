@@ -5,12 +5,7 @@
         <section class="introHeader">
             <p class="garamond introText" ref="introText">
                 <!-- <span class="marks1">"</span> -->
-                Ma mission est d’éclairer ton chemin afin de mettre en lumière tes propres richesses en source
-                d’évolution personnelle afin d’atteindre la sérénité et la paix. Nous entrons aujourd’hui dans
-                une pleine conscience du lien entre le corps et la conscience de soi qui concerne l’ensemble
-                des êtres Humains.
-                Je t’accompagne à te choisir, à devenir responsable de ta vie émotionnelle et psychique, en te
-                reconnectant afin d’explorer les mille et un trésors qui dorment en toi.
+                {{ content.intro }}
                 <!-- <span class="marks2">"</span> -->
             </p>
         </section>
@@ -63,6 +58,22 @@ onMounted(() => {
 
     observer.observe(introText.value)
 })
+
+
+
+const appConfig = useAppConfig()
+
+const url = appConfig.directus.items + 'Homepage'
+
+const { data: content } = await useAsyncData(
+    'homepage',
+    async () => {
+        const items = await $fetch(url)
+        return items.data
+    }
+    ,
+    { server: true }
+)
 
 </script>
 
