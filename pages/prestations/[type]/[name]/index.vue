@@ -11,9 +11,9 @@
     </header>
 
     <main class="prestaBoard">
-        <p class="description">
-            {{ presta.description }}
-        </p>
+        <div v-html="presta.description" class="description">
+            
+        </div>
     </main> 
 </template>
 
