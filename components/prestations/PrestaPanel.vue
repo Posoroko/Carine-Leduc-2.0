@@ -21,20 +21,22 @@
 
         <ul class="prestaList" v-if="listsOn === true">
             <li class="prestaItem" v-for="(item, index) in listOfItems" :key="item.id">
-                
+                <NuxtLink class="box" :to="`/prestations/${presta.id}/${item.slug}`">
 
-                <div class="line">0{{ index + 1 }}</div>
+                    <div class="line">0{{ index + 1 }}</div>
 
-                <div class="itemBox">
-                    <h3 class="itemTitle">{{ item.name }}</h3>
+                    <div class="itemBox">
+                        <h3 class="itemTitle">{{ item.name }}</h3>
 
-                    <p class="accroche">{{ item.accroche }}</p>
+                        <p class="accroche">{{ item.accroche }}</p>
 
-                    <!-- links in the list on the presta type page -->
-                    <NuxtLink class="more" :to="`/prestations/${presta.id}/${item.slug}`">
-                        <span>découvrir...</span>
-                    </NuxtLink>
-                </div>
+                        <!-- links in the list on the presta type page -->
+                        
+                            <div class="more">
+                                <span>découvrir...</span>
+                            </div>
+                    </div>
+                </NuxtLink>
             </li>
         </ul>
 
@@ -217,7 +219,9 @@ const { data: listOfItems } = await useAsyncData(
     flex-wrap: wrap;
     gap: 20px;
 }
-
+.prestaList .prestaItem .itemBox:hover {
+    background-color: rgba(255, 255, 255, 0.034);
+}
 .prestaList .prestaItem .itemBox .itemTitle {
     color: var(--text);
     font-weight: 300;
@@ -226,12 +230,13 @@ const { data: listOfItems } = await useAsyncData(
 .prestaList .prestaItem .itemBox .accroche {
     color: var(--text);
     font-size: var(--main-text-size);
-    font-weight: 200;
+    font-weight: 300;
     width: min(100%, 360px);
 }
 .prestaList .prestaItem .itemBox .more {
+    text-align: center;
     color: var(--gold-text);
-    font-weight: 200;
+    font-weight: 300;
     width: min(100%, 100px);
     display: grid;
     place-items: center;

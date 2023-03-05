@@ -121,7 +121,13 @@ header {
     opacity: 0.08;
     z-index: -1;
 }
+.prestaBoard .description::v-deep ul {
+    padding-left: 40px
+}
 
+.prestaBoard .description::v-deep ul li{
+    list-style: disc;
+}
 .description {
     font-size: var(--main-text-size);
     color: var(--main-text-color);
