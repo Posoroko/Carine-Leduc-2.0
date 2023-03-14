@@ -2,7 +2,7 @@
     <header class="smallHeader">
         <div class="headerTop">
             <img :src="`/images/headers/${prestaType}.jpg`" alt="">
-            <h1 class="animatedTitle">{{ presta.name }}</h1> 
+            <h1 class="animatedTitle">{{ activePresta.name }}</h1> 
         </div>
     </header>
 
@@ -10,7 +10,7 @@
         <div class="background"></div>
 
         <div class="prestaPanelBox" >
-            <PrestaPanel  :presta="presta" :listsOn="true"/>
+            <PrestaPanel  :presta="activePresta" :listsOn="true"/>
         </div>        
     </main>
 </template>
@@ -20,26 +20,42 @@ import PrestaPanel from '@/components/prestations/PrestaPanel'
 
 const prestaType = useRoute().params.type
 
-console.log(prestaType)
-
 const appConfig = useAppConfig()
 
-const url = appConfig.directus.items + `Prestations?filter[id][_eq]=${prestaType}`
+const url = appConfig.directus.items + `Prestations?filter[idName][_eq]=${prestaType}`
 
-const fetchOptions = {
+const fetchOptionsActivePresta = {
     server: true,
 }
 
-const { data: presta } = await useAsyncData(
+const { data: activePresta } = await useAsyncData(
     'prestaByType', 
     async () => {
-        const items = await $fetch(url, fetchOptions)
-        // console.log(items.data[0])
+        const items = await $fetch(url, fetchOptionsActivePresta)  
+        console.log(items.data.length) 
         return items.data[0]
     }
     ,
     { server: true }
 )
+
+
+// const urlPrestations = appConfig.directus.items + `${prestaType}`
+// const fetchOptionsPrestations = {
+//     server: true,
+// }
+
+// const { data: prestations } = await useAsyncData(
+//     'prestaByType',
+//     async () => {
+//         const items = await $fetch(urlPrestations, fetchOptionsPrestations)
+//         console.log(items.data[0])
+//         return items.data[0]
+//     }
+//     ,
+//     { server: true }
+// )
+
 
 </script>
 

@@ -11,7 +11,10 @@
     </header>
 
     <main class="prestaBoard">
-        <div v-html="presta.description" class="description">
+        <h2 class="prestaTitle">{{ presta.name }}</h2>
+
+        <p class="prestaText">{{ presta.accroche }}</p>
+        <div v-html="presta.description" class="prestaDescription">
             
         </div>
     </main> 
@@ -29,7 +32,7 @@ const { data: presta } = await useAsyncData(
     'prestaByName', 
     async () => {
         const items = await $fetch(url)
-        console.log(items.data)
+        console.log(items.data) 
         return items.data[0]
     } 
     ,

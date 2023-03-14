@@ -81,7 +81,7 @@ import TitleBar from '@/components/homepage/TitleBar'
 
 const appConfig = useAppConfig()
 
-const url = appConfig.directus.items + 'aboutPages?fields=title,accroche'
+const url = appConfig.directus.items + 'aboutPage?fields=title,accroche'
 
 // fetching the list of services of the specific type (soins, massages, etc.)
 

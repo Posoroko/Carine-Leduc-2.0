@@ -28,6 +28,7 @@ const { data: prestations } = await useAsyncData(
     'prestations', 
     async () => {
         const items = await $fetch(url)
+        console.log(items.data)
         return items
     }
     ,

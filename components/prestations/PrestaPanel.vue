@@ -1,12 +1,12 @@
 <template>
     
-    <section class="prestaPanel reactiveCardBasicStyles_userActions panel" :class="{reactiveCard_userActions: listsOn === false}">
+    <section class="prestaPanel  reactiveCardBasicStyles_userActions panel" :class="{reactiveCard_userActions: listsOn === false}">
         <img class="cardMoon" src="/images/deco/presta-panel-moon.jpg" alt="">
         
         <div class="prestaSectionHeader">
             <figure class="prestaCardFrame">
 
-                    <img class="cardImage" src="/images/deco/carte.jpg" alt="">
+                <img class="cardImage" src="/images/deco/carte.jpg" alt="">
 
             </figure>
 
@@ -15,13 +15,11 @@
 
                 <h3 class="prestaTitle">{{  presta.accroche }}</h3>
             </div>
-            
-            
         </div>
 
         <ul class="prestaList" v-if="listsOn === true">
             <li class="prestaItem" v-for="(item, index) in listOfItems" :key="item.id">
-                <NuxtLink class="box" :to="`/prestations/${presta.id}/${item.slug}`">
+                <NuxtLink class="box" :to="`/prestations/${presta.idName}/${item.slug}`">
 
                     <div class="line">0{{ index + 1 }}</div>
 
@@ -32,16 +30,16 @@
 
                         <!-- links in the list on the presta type page -->
                         
-                            <div class="more">
-                                <span>découvrir...</span>
-                            </div>
+                        <div class="more">
+                            <span>découvrir...</span>
+                        </div>
                     </div>
                 </NuxtLink>
             </li>
         </ul>
 
         <!-- Link for presta types on prestations page -->
-        <NuxtLink class="moreLink" :to="`/prestations/${presta.id}`" v-if="listsOn === false">
+        <NuxtLink class="moreLink" :to="`/prestations/${presta.idName}`" v-if="listsOn === false">
 
         </NuxtLink>
 
@@ -51,19 +49,13 @@
 <script setup>
 
 const props = defineProps({
-    presta: {
-        type: Object,
-        required: true
-    },
-    listsOn: {
-        type: Boolean,
-        required: true
-    }
+    presta: Object,
+    listsOn: Boolean,
 })
 
 const appConfig = useAppConfig()
-console.log(props.presta.name)
-const url = appConfig.directus.items + props.presta.id
+
+const url = appConfig.directus.items + props.presta.idName
 
 // fetching the list of services of the specific type (soins, massages, etc.)
 const { data: listOfItems } = await useAsyncData(
@@ -216,8 +208,7 @@ const { data: listOfItems } = await useAsyncData(
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
+    /* gap: 20px; */
 }
 .prestaList .prestaItem .itemBox:hover {
     background-color: rgba(255, 255, 255, 0.034);

@@ -3,7 +3,7 @@
         <Header />
         
         <section class="introHeader">
-            <p class="garamond introText" ref="introText">
+            <p class="garamond introText" ref="introText" vif="content.intro">
                 <!-- <span class="marks1">"</span> -->
                 {{ content.intro }}
                 <!-- <span class="marks2">"</span> -->
@@ -69,6 +69,7 @@ const { data: content } = await useAsyncData(
     'homepage',
     async () => {
         const items = await $fetch(url)
+        console.log(items.data)
         return items.data
     }
     ,
