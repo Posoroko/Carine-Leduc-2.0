@@ -46,9 +46,9 @@ const { data: dates } = await useAsyncData(
     async () => {
         const items = await $fetch(url)
         console.log(items.data)
-        // items.data.forEach(item => {
-        //     item.time = item.time.slice(0, 5)
-        // })
+        items.data.forEach(item => {
+            item.time = (item.time + 'h').slice(0, 5)
+        })
         return items.data
     }
     ,
