@@ -1,7 +1,7 @@
 <template>
     <section class="table">
-        <div class="box1 absolute top right bottom left">
-            <ArtDeco />
+        <div class="box1">
+            <!-- <ArtDeco /> -->
         </div>
         
         <div class="box2">
@@ -46,7 +46,7 @@ const { data: prestations } = await useAsyncData(
  
 </script>
 
-<style>
+<style scoped>
 .table {
     width: var(--mid-width);
     background-color: var(--second-bg);
@@ -62,6 +62,11 @@ const { data: prestations } = await useAsyncData(
 }
 .box1 {
     z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
 }
 .box2 {
     width: 100%;

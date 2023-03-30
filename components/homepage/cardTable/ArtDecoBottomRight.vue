@@ -1,7 +1,7 @@
 <template>
 
 <!-- Generator: Adobe Illustrator 26.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 278.67 467.22" style="enable-background:new 0 0 278.67 467.22;" xml:space="preserve">
+<svg version="1.1" id="Calque_4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 278.67 467.22" style="enable-background:new 0 0 278.67 467.22;" xml:space="preserve">
 
 <g id="Groupe_407" transform="translate(-3906.964 -751.664)" class="st0">
 	
@@ -65,5 +65,11 @@
 
 <style scoped>
 
-
+#Calque_4 {
+    border: 1px solid red;
+    width: 500px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
 </style>

@@ -1,3 +1,4 @@
+import { searchForWorkspaceRoot } from 'vite'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     app: {
@@ -41,21 +42,10 @@ export default defineNuxtConfig({
     ssr: true,
 
     modules: [
-      "nuxt-directus",
-      "@pinia/nuxt",
-      '@nuxtjs/apollo'
+      "nuxt-directus"
     ],
 
     directus: {
       url: "https://ku3vu7zb.directus.app"
-    },
-
-    apollo: {
-        clients: {
-            default: {
-              httpEndpoint: 'https://ku3vu7zb.directus.app/graphql'
-            }
-          }
     }
-
 })

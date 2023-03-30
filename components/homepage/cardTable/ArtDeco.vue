@@ -1,18 +1,18 @@
 <template>
-	<div class="bigBox full">
-		<div class="artDecoFrame absolute top left">
+	<div class="bigBox">
+		<div class="artDecoFrame topLeft">
 			<ArtDecoTopLeft />
 		</div>
 
-		<div class="artDecoFrame absolute top right">
+		<div class="artDecoFrame topRight">
 			<ArtDecoTopRight />
 		</div>
 		
-		<div class="artDecoFrame absolute bottom left">
+		<div class="artDecoFrame bottomLeft">
 			<ArtDecoBottomLeft />
 		</div>
 		
-		<div class="artDecoFrame absolute bottom right">
+		<div class="artDecoFrame bottomRight">
 			<ArtDecoBottomRight />
 		</div>
 	</div>
@@ -31,6 +31,8 @@ import ArtDecoTopRight from '@/components/homepage/cardTable/ArtDecoTopRight'
 <style>
 .bigBox{
 	position: relative;
+    width: 100%;
+    height: 100%;
 }
 .artDecoFrame {
 	width: 100%;
@@ -47,5 +49,32 @@ import ArtDecoTopRight from '@/components/homepage/cardTable/ArtDecoTopRight'
 .st1{
     fill: white;
 }
-
+.topLeft {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.topRight {
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.bottomLeft {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.bottomRight {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
 </style>

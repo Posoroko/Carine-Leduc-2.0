@@ -3,10 +3,10 @@
         <Header />
         
         <section class="introHeader">
-            <p class="garamond introText" ref="introText" vif="content.intro">
-                <!-- <span class="marks1">"</span> -->
+            <p class="garamond introText" ref="introText" vif="content.intro"> -->
+                <span class="marks1">"</span>
                 {{ content.intro }}
-                <!-- <span class="marks2">"</span> -->
+                <span class="marks2">"</span>
             </p>
         </section>
 

@@ -11,11 +11,26 @@
     </header>
 
     <main class="prestaBoard">
-        <h2 class="prestaTitle">{{ presta.name }}</h2>
+        <p class="prestaAccroche main-suntitle-size work flex">
+            <span class="price work main-text-size main-text-color">
+                    {{ presta.accroche }}
+                </span>
+            <span class="price work main-text-size main-text-color">
+                {{ presta.accroche }}
+                {{ presta.price }}€
+            </span>
+        </p>
 
-        <p class="prestaText">{{ presta.accroche }}</p>
-        <div v-html="presta.description" class="prestaDescription">
+        <div v-html="presta.description" class="prestaDescription main-text-size work">
             
+        </div>
+
+        <div class="prestaBottomBox">
+            <div class="bottomLine">
+                <span class="price work main-text-size main-text-color">
+                    {{ presta.price }}€
+                </span>
+            </div>
         </div>
     </main> 
 </template>
@@ -124,11 +139,22 @@ header {
     opacity: 0.08;
     z-index: -1;
 }
-.prestaBoard .description::v-deep ul {
-    padding-left: 40px
+.prestaBoard .prestaAccroche {
+    color: var(--main-text-color);
+    border-bottom: 1px solid var(--main-contrast);
 }
 
-.prestaBoard .description::v-deep ul li{
+.prestaDescription {
+    color: var(--main-text-color);
+    text-align: left;
+    white-space: pre-wrap;
+    padding: 40px;
+}
+.prestaBoard .description:deep(ul) {
+    padding-left: 40px;
+}
+
+.prestaBoard .description:v-deep(ul li){
     list-style: disc;
 }
 .description {
@@ -136,5 +162,9 @@ header {
     color: var(--main-text-color);
     font-family: var(--main-text-font);
     white-space: pre-wrap;
+}
+.prestaBottomBox {
+    border-top: 1px solid var(--main-contrast);
+    border-bottom: 1px solid var(--main-contrast);
 }
 </style>

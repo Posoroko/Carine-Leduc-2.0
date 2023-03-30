@@ -31,8 +31,17 @@
 
     --item-title-size: clamp(22px, 3vw, 40px);
     --item-subtitle-size: clamp(16px, 1.5vw, 22px);
-    --main-text-size: clamp(16px, 1.5vw, 18px)
+    --main-text-size: clamp(16px, 1.8vw, 20px);
+    --main-subtitle-size: clamp(20px, 1.5vw, 24px);
+}
 
+.main-text-size {
+    font-size: var(--main-text-size);
+    font-weight: 300;
+    line-height: 1.7rem;
+}
+.main-suntitle-size {
+    font-size: var(--main-subtitle-size);
 }
 
 .standard {
@@ -59,16 +68,16 @@
 }
 
 .icon {
-font-family: 'Material Symbols Outlined';
-font-weight: normal;
-font-style: normal;
-line-height: 1;
-letter-spacing: normal;
-text-transform: none;
-display: inline-block;
-white-space: nowrap;
-word-wrap: normal;
-direction: ltr;
--moz-osx-font-smoothing: grayscale;
-user-select: none;
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -moz-osx-font-smoothing: grayscale;
+    user-select: none;
 }
