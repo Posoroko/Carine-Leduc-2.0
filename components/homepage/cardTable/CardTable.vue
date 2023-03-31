@@ -1,7 +1,7 @@
 <template>
     <section class="table">
         <div class="box1">
-            <!-- <ArtDeco /> -->
+            <ArtDeco />
         </div>
         
         <div class="box2">

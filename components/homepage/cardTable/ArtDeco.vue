@@ -1,80 +1,65 @@
 <template>
 	<div class="bigBox">
-		<div class="artDecoFrame topLeft">
-			<ArtDecoTopLeft />
-		</div>
+        <div class="frame topLeft">
+            <decoArtDeco />
+        </div>
 
-		<div class="artDecoFrame topRight">
-			<ArtDecoTopRight />
-		</div>
-		
-		<div class="artDecoFrame bottomLeft">
-			<ArtDecoBottomLeft />
-		</div>
-		
-		<div class="artDecoFrame bottomRight">
-			<ArtDecoBottomRight />
-		</div>
+        <div class="frame topRight">
+            <decoArtDeco />
+        </div>
+
+        <div class="bottomLeft frame">
+            <decoArtDeco />
+        </div>
+
+        <div class="frame bottomRight">
+            <decoArtDeco />
+        </div>
+        
 	</div>
 </template>
 
 <script setup>
-import ArtDecoBottomLeft from '@/components/homepage/cardTable/ArtDecoBottomLeft'
-import ArtDecoBottomRight from '@/components/homepage/cardTable/ArtDecoBottomRight'
-import ArtDecoTopLeft from '@/components/homepage/cardTable/ArtDecoTopLeft'
-import ArtDecoTopRight from '@/components/homepage/cardTable/ArtDecoTopRight'
-
+import decoArtDeco from '@/components/homepage/cardTable/decoArtDeco'
 </script>
 
 
 
-<style>
+<style scoped>
 .bigBox{
 	position: relative;
     width: 100%;
     height: 100%;
-}
-.artDecoFrame {
-	width: 100%;
-}
-.artDecoFrame svg {
-    width: 100%;
-    height: 100%;
+
 }
 
-.st0{
-    opacity:0.22;
+.frame {
+    padding: 5px;
+    position: absolute;
+    width: clamp(100px, 40vw, 250px);
+    height: 40%;
+    z-index: 0;
 }
-	
-.st1{
-    fill: white;
-}
-.topLeft {
+
+.topLeft{
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    position: absolute;
 }
 .topRight {
     top: 0;
     right: 0;
-    width: 100%;
-    height: 100%;
-    position: absolute;
+    transform: rotateY(180deg);
 }
 .bottomLeft {
     bottom: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    position: absolute;
+    transform: rotateX(180deg);
 }
+
 .bottomRight {
     bottom: 0;
     right: 0;
-    width: 100%;
-    height: 100%;
-    position: absolute;
+    transform: rotateX(180deg) rotateY(180deg);
 }
+
 </style>
