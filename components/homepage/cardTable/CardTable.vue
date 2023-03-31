@@ -1,6 +1,6 @@
 <template>
     <section class="table">
-        <div class="box1">
+        <div class="box1 r">
             <!-- <ArtDeco /> -->
         </div>
         

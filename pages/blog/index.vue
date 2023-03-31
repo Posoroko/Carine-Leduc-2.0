@@ -1,29 +1,29 @@
 <template>
     <blogHeader :title="blogConfig.title" :subtitle="blogConfig.subtitle"/>
     <main>
-        <section class="latestBigBox">
+        <section class="latestBigBox" v-if="blogs">
             <artice class="latestBox">
                 <figure class="frame">
-                    <img :src="appConfig.directus.assets + blogs[0].mainImage.image" :alt="blogs[0].mainImage.alt">
+                    <img :src="`${directusAssets}${blogs.latest.mainImage}`" :alt="blogs.latest.mainImageAlt">
                 </figure>
 
-                <h1 class="title blogFont">{{ blogs[0].title }}</h1>
+                <h3 class="title blogFont">{{ blogs.latest.title }}</h3>
+                <p>{{ blogs.latest.date_published }}</p>
 
-                <div class="latestContent blogFont blogText"  v-html="blogs[0].content.slice(0, 200) + '...'" id="paragraph"></div>
+                <p class="latestContent blogFont blogText"  v-html="`${blogs.latest.content.slice(0, 150)} ...`" id="paragraph"></p>
 
-                <p class="blogMoreBox blogFont blogText">
+                <div class="blogMoreBox blogFont blogText">
 
-                    <!-- le lien doit pointer vers la page bio du blog -->
-                    <NuxtLink :to="`/blog/${blogs[0].title}`">
-                        lire la suite...
+                    <NuxtLink class="blogMoreButton" :to="`/blog/${blogs.latest.title}`">
+                        lire la suite
                     </NuxtLink>
-                </p>
+                </div>
                 
             </artice>
 
-            <ul class="recentBox">
+            <ul class="recentBox" v-if="blogs.recent.length">
                 <h2> <span class="dot"></span> ARTICLES RECENTS</h2>
-                <NuxtLink :to="`/blog/${item.title}`" class="recent pointer blogFont" v-for="(item, index) in blogs.slice(1,5)" :key="item.id">
+                <NuxtLink :to="`/blog/${item.title}`" class="recent pointer blogFont" v-for="(item, index) in blogs.recent" :key="item.id">
                     <p>{{ index + 1 }}.</p>
 
                     <div class="midlleBox">
@@ -33,7 +33,7 @@
                     </div>
 
                     <figure class="">
-                        <img :src="appConfig.directus.assets + item.mainImage.image" :alt="item.mainImage.image">
+                        <img :src="`${directusAssets}${item.mainImage}`" :alt="item.image">
                     </figure>
                 </NuxtLink>
             </ul>
@@ -91,6 +91,7 @@ definePageMeta({
 });
 
 const appConfig = useAppConfig()
+const directusAssets = appConfig.directus.assets
 
 const blogsUrl = appConfig.directus.items + "Blogs"
 const blogFetchOptions = {
@@ -98,21 +99,28 @@ const blogFetchOptions = {
     params: {
         limit: 5,
         sort: '-date_published',
-        fields: 'id, title, content, date_published, mainImage.image, mainImage.alt'
+        fields: 'id, title, content, date_published, mainImage, mainImage'
     }
 }
 
 const { data: blogs } = await useAsyncData(
     'homePageBlogs', 
     async () => {
-        const items = await $fetch(blogsUrl, blogFetchOptions)
-        return items.data
+        const _items = await $fetch(blogsUrl, blogFetchOptions)
+        const items = _items.data
+
+        const temp = {
+            latest: items.splice(0,1) [0],
+            recent: items
+        }
+
+        return temp
     }
     ,
     { server: true }
 )
 
-const blogConfigUrl = appConfig.directus.items + "BlogConfig"
+const blogConfigUrl = appConfig.directus.items + "BlogConfig" 
 const blogConfigFetchOptions = {
     server: true,
     // params: {
@@ -318,12 +326,13 @@ const { data: blogConfig } = await useAsyncData(
     margin-top: 20px;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 }
-.blogMoreBox a {
-    /* color: white; */
-    /* background-color: var(--blog-color); */
-    padding: 5px 15px 2px 15px;
-    border-radius: 20px;
+.blogMoreBox .blogMoreButton {
+    color: white;
+    background-color: var(--blog-color);
+    padding: 5px 15px 5px 15px;
+    border-radius: 5px;
     vertical-align: middle;
 }
 
