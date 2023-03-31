@@ -1,7 +1,7 @@
 <template>
     
     <section class="prestaPanel  reactiveCardBasicStyles_userActions panel" :class="{reactiveCard_userActions: listsOn === false}">
-        <img class="cardMoon" src="/images/deco/presta-panel-moon.jpg" alt="">
+        <img class="cardMoon" src="/images/deco/presta-panel-moon.jpg" alt="" v-if="!listsOn">
         
         <div class="prestaSectionHeader">
             <figure class="prestaCardFrame">

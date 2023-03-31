@@ -11,26 +11,13 @@
     </header>
 
     <main class="prestaBoard">
-        <p class="prestaAccroche main-suntitle-size work flex">
-            <span class="price work main-text-size main-text-color">
-                    {{ presta.accroche }}
-                </span>
-            <span class="price work main-text-size main-text-color">
-                {{ presta.accroche }}
-                {{ presta.price }}€
-            </span>
+        <p class="prestaAccroche main-suntitle-size work">
+            <span>{{ presta.accroche }}</span>
+            <span>{{ presta.price }}€</span>
         </p>
 
         <div v-html="presta.description" class="prestaDescription main-text-size work">
             
-        </div>
-
-        <div class="prestaBottomBox">
-            <div class="bottomLine">
-                <span class="price work main-text-size main-text-color">
-                    {{ presta.price }}€
-                </span>
-            </div>
         </div>
     </main> 
 </template>
@@ -142,6 +129,8 @@ header {
 .prestaBoard .prestaAccroche {
     color: var(--main-text-color);
     border-bottom: 1px solid var(--main-contrast);
+    display: flex;
+    justify-content: space-between;
 }
 
 .prestaDescription {
