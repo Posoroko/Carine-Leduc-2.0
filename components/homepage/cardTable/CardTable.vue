@@ -9,8 +9,8 @@
         </div>
 
         <div class="cardBox cardBoxOff" v-for="presta in prestations" :key="presta.id">
-            <NuxtLink class="underCard" :to="`/prestations/${presta.id}`">
-                <p class="prestaDescription">{{presta.accroche}}</p>
+            <NuxtLink class="underCard" :to="`/prestations/${presta.idName}`">
+                <span class="prestaDescription">{{presta.accroche}}</span>
 
                 <div class="icon">arrow_forward</div>
 
@@ -99,12 +99,14 @@ const { data: prestations } = await useAsyncData(
     justify-content: space-between;
 }
 .prestaDescription {
+    width: 100%;
     color: var(--text);
     font-family: var(--main-text-font);
     font-size: 20px;
     font-weight: 300;
     text-align: center;
     padding: 40px 20px;
+    white-space: pre-wrap;
 }
 
 

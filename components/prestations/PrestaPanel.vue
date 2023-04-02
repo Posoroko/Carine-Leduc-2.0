@@ -208,10 +208,11 @@ const { data: listOfItems } = await useAsyncData(
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
-    /* gap: 20px; */
+    transition:300ms ease;
 }
 .prestaList .prestaItem .itemBox:hover {
-    background-color: rgba(255, 255, 255, 0.034);
+    background-color: rgba(255, 255, 255, 0.122);
+    transition:300ms ease;
 }
 .prestaList .prestaItem .itemBox .itemTitle {
     color: var(--text);
