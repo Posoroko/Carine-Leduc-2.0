@@ -4,9 +4,7 @@
         
         <section class="introHeader">
             <p class="garamond introText" ref="introText" vif="content.intro">
-                <span class="marks1">"</span>
                 {{ content.intro }}
-                <span class="marks2">"</span>
             </p>
         </section>
 
@@ -42,34 +40,34 @@ const introText = ref(null)
 
 let observer = null
 
-onMounted(() => {
-    observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+// onMounted(() => {
+//     observer = new IntersectionObserver((entries) => {
+//         entries.forEach(entry => {
 
-            if (entry.isIntersecting) {
-                entry.target.classList.remove('textOff')
-                entry.target.classList.add('textOn')
-            } else {
-                entry.target.classList.remove('textOn')
-                entry.target.classList.add('textOff')
-            }
-        })
-    })
+//             if (entry.isIntersecting) {
+//                 entry.target.classList.remove('textOff')
+//                 entry.target.classList.add('textOn')
+//             } else {
+//                 entry.target.classList.remove('textOn')
+//                 entry.target.classList.add('textOff')
+//             }
+//         })
+//     })
 
-    observer.observe(introText.value)
-})
+//     observer.observe(introText.value)
+// })
 
 
 
 const appConfig = useAppConfig()
 
-const url = appConfig.directus.items + 'Homepage'
+const url = appConfig.directus.items
 
 const { data: content } = await useAsyncData(
     'homepage',
     async () => {
-        const items = await $fetch(url)
-        console.log(items.data)
+        const items = await $fetch(`${url}/Intro_texts`)
+        console.log(items.data.homepage) 
         return items.data
     }
     ,
