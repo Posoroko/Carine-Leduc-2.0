@@ -2,12 +2,8 @@
     <main>
         <Header />
         
-        <section class="introHeader">
-            <p class="garamond introText" ref="introText" vif="content.intro">
-                <span class="marks1">"</span>
-                {{ content.intro }}
-                <span class="marks2">"</span>
-            </p>
+        <section class="introHeader" v-if="homeIntro">
+            <p ref="introText" class="garamond introText"><span class="mark">" </span>{{ homeIntro }}<span class="mark"> "</span></p>
         </section>
 
         <CardTable />
@@ -63,14 +59,14 @@ onMounted(() => {
 
 const appConfig = useAppConfig()
 
-const url = appConfig.directus.items + 'Homepage'
+const url = appConfig.directus.items + 'Intro_texts'
 
-const { data: content } = await useAsyncData(
+const { data: homeIntro } = await useAsyncData(
     'homepage',
     async () => {
         const items = await $fetch(url)
-        console.log(items.data)
-        return items.data
+        console.log(items.data.homepage)
+        return items.data.homepage
     }
     ,
     { server: true }
@@ -81,50 +77,7 @@ const { data: content } = await useAsyncData(
 
 
 <style scoped>
-.introHeader {
-    width: var(--main-width);
-    color: var(--text);
-    padding: 50px 0;
-    margin: auto;
-    display: grid;
-    place-items: center;
-}
-.introHeader p {
-    width: min(800px, var(--main-width));
-    font-size: clamp(20px , 2vw, 30px);
-    font-family: var(--main-text-font);
-    font-weight: 200;
-    text-align: center;
-    line-height: 1.5;
-    color: var(--text);
-    padding: 15px;
-    margin: 100px 0;
-    position: relative;
-}
-
-.marks1{
-    font-family: var(--english);
-    font-size: 60px;
-    font-weight: 200;
-    color: var(--main-contrast);
-    margin: 15px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform : translate(-60%, -25%);
-}
-.marks2{
-    font-family: var(--english);
-    font-size: 60px;
-    font-weight: 200;
-    color: var(--main-contrast);
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    transform : translate(-50%, 50%);
-}
 .decoStripe {
-    /* background-color: var(--main-contrast); */
     padding: 20px;
     display: flex;
     justify-content: center;

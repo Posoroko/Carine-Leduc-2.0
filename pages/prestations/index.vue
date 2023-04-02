@@ -6,7 +6,13 @@
         </div>
     </header>
 
+    <section class="introHeader" v-if="prestaIntro">
+        <p ref="introText" class="garamond introText"><span class="mark">" </span>{{ prestaIntro }}<span class="mark"> "</span></p>
+    </section>
+
     <main class="prestaBoard">
+        
+
         <div class="background"></div>
 
         <div class="prestaPanelBox" v-for="(presta, index) in prestations.data" :key="presta.id">
@@ -22,19 +28,28 @@ import PrestaPanel from '@/components/prestations/PrestaPanel'
 
 const appConfig = useAppConfig()
 
-const url = appConfig.directus.items + 'Prestations'
+const url = appConfig.directus.items
 
 const { data: prestations } = await useAsyncData(
     'prestations', 
     async () => {
-        const items = await $fetch(url)
+        const items = await $fetch(url + 'Prestations')
         console.log(items.data)
         return items
     }
     ,
     { server: true }
 )
-
+const { data: prestaIntro } = await useAsyncData(
+    'homepage',
+    async () => {
+        const items = await $fetch(url + 'Intro_texts')
+        console.log(items.data.prestations)
+        return items.data.prestations
+    }
+    ,
+    { server: true }
+)
 
 </script>
 

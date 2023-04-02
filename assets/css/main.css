@@ -96,9 +96,23 @@ h1 {
 
 /* intro text, bigger font top of page */
 
+.introHeader {
+    width: var(--main-width);
+    padding: 150px;
+    margin: auto;
+}
+.mark {
+    height: 30px;
+    font-family: var(--english);
+    font-size: 60px;
+    line-height: 1;
+    vertical-align: middle;
+    font-weight: 200;
+    color: var(--main-contrast);
+    display: none;
+}
 
 .introText {
-    width: min(800px, var(--main-width));
     font-size: clamp(20px, 2vw, 30px);
     font-family: var(--main-text-font);
     font-weight: 200;
@@ -106,7 +120,8 @@ h1 {
     line-height: 1.5;
     color: var(--text);
     padding: 15px;
-    margin: 100px auto;
+    position: relative;
+    white-space: pre-wrap;
 }
 
 /* animation on scroll */
