@@ -110,7 +110,7 @@ const { data: blogs } = await useAsyncData(
         const items = _items.data
 
         const temp = {
-            latest: items.splice(0,1) [0],
+            latest: items.splice(0,1)[0],
             recent: items
         }
 
