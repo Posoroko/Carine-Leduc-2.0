@@ -1,7 +1,7 @@
 <template>
     <header class="blogHeader">
-        <h1>{{  title }}</h1>
-        <h2>{{ subtitle }}</h2>
+        <h1>{{  blogConfig.title }}</h1>
+        <h2>{{ blogConfig.subtitle }}</h2>
         <div class="catBox">
             <p>santé</p>
             <p>saison</p>
@@ -12,11 +12,24 @@
 </template>
 
 <script setup>
-const props = defineProps({
-    title: String,
-    subtitle: String,
-})
+const appConfig = useAppConfig()
+const blogConfigUrl = appConfig.directus.items + "BlogConfig"
+const blogConfigFetchOptions = {
+    server: true,
+    // params: {
+    //     fields: 'title, content, date_published, mainImage.image, mainImage.alt'
+    // }
+}
 
+const { data: blogConfig } = await useAsyncData(
+    'blogConfig',
+    async () => {
+        const items = await $fetch(blogConfigUrl, blogConfigFetchOptions)
+        return items.data
+    }
+    ,
+    { server: true }
+)
 
 </script>
 

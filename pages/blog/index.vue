@@ -1,5 +1,5 @@
 <template>
-    <blogHeader :title="blogConfig.title" :subtitle="blogConfig.subtitle"/>
+    <!-- <blogHeader :title="blogConfig.title" :subtitle="blogConfig.subtitle"/> -->
     <main>
         <section class="latestBigBox" v-if="blogs">
             <artice class="latestBox">

@@ -2,8 +2,8 @@
     <div class="blogBody">
         <div class="blogPage">
             <TopBar :isBlog="true" />
-
-            <blogTopDate />
+            <blogHeader />
+            <!-- <blogTopDate /> -->
 
             <slot />
 

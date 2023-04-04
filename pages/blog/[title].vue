@@ -1,9 +1,12 @@
 <template>
-    <header class="blogHeader">
-        <h1 class="title">{{ blog.title }}</h1>
-        <h2 class="subtitle"> {{ blog.subtitle }}</h2>
+    <div class="backHomeBar">
+        <NuxtLink class=" linkBack" to="/blog"><span class="icon">arrow_back</span> <span>retour à la page d'accueil du blog</span></NuxtLink>
+    </div>
+    <main class="blogHeader">
+        <h2 class="title">{{ blog.title }}</h2>
+        <h3 class="subtitle"> {{ blog.subtitle }}</h3>
         <p v-if="blog" :v-html="blog.content"></p>
-    </header>
+    </main>
 
 </template>
 
@@ -33,11 +36,34 @@ const { data: blog } = await useAsyncData(
     ,
     { server: true } 
 )   
-  
+
   
 </script>
 
 <style scoped>
+.backHomeBar {
+    display: flex;
+    padding: 5px;
+}
+.linkBack {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--blog-color);
+    color: white;
+    border-radius: 5px;
+}
+.linkBack:hover {
+    background-color: var(--blog-color-hover);
+    box-shadow: var(--shadow);
+}
+.backHomeBar .icon {
+    font-size: 30px;
+    margin-right: 10px;
+}
+.backHomeBar span {
+    font-size: 20px;
+}
 .blogHeader .title {
     font-size: 80px;
     font-family: var(--blog-text-font);
